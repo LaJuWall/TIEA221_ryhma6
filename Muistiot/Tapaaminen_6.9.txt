@@ -1,0 +1,28 @@
+6.9.2013, klo: 16:00
+TIEA221 Ryhmä 6 Tapaamisen muistio.
+
+Paikalla kaikki.
+
+Käsiteltyjä kysymyksiä:
+* Onko pelaajan itse reagoitava monitorin muutoksiin vai ilmoittaako 
+  peli, kun on aika reagoida?
+  - Oikeasti monitori ilmoittaa äänimerkillä jonkin ollessa vialla.
+* Mitä ovat mahdolliset skenaariot?
+  - Pulssi laskee huomattavasti tai katoaa
+  - Verenpaineen muutos joko korkeammaksi tai matalammaksi
+  - Happisaturaation laskeminen
+  - Rytmihäiriö
+  - Uloshengitettävän hiilidioksidin määrä laskee
+  - Relaksaatiossa tapahtuu muutos
+* Miten näihin skenaarioihin tulisi reagoida?
+  - Mahdollisia ratkaisuja on useita.
+  - Päätimme muodostaa mahdollisista skenaarioista ja niiden ratkai-
+    suista puukaavion tulevissa tapaamisissa.
+* Voisiko vastauksissa olla myös “Mistä verenpaineen romahdus voi 
+  kertoa?” tai “Mitä tämä arvo kertoo” tyylisiä kysymyksiä?
+
+Muuta huomioimisen arvoista:
+* Näyttöön piirtyvä käyrä ei ole jatkuva, vaan “uuden” käyrän alka-
+  essa vanha deletoituu pois ruudulta.
+
+Seuraava tapaaminen sovittu 12.6.2013 klo 16 ->
