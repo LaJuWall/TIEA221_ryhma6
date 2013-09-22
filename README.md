@@ -1,2 +1,2 @@
-TIEA221_ryhma6
+TIEA221 kurssin harkkatyö: Monitorinseurantapeli
 ==============
