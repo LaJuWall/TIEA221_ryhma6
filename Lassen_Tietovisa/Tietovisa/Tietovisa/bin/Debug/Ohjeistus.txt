@@ -1,0 +1,86 @@
+Tietovisa -pelin ohjeistus
+
+
+1. Yleist‰
+
+Tietovisa on peli, jossa teht‰v‰si on ker‰t‰ pisteit‰ vastaamalla oikein
+ruudulla n‰kyv‰‰n kysymykseen klikkaamalla oikean vastausvaihtoehdon
+nappulaa
+
+
+2. K‰yttˆ ilman hiirt‰
+
+Tietovisaa voit myˆs pelata ilman hiirt‰! Painamalla Alt -n‰pp‰imen
+pohjaan n‰pp‰imistˆst‰si, painikkeiden teksteist‰ alleviivaantuu kirjain,
+jota vastaavalla n‰pp‰imell‰ voit korvata n‰pp‰imen klikkaamisen. Voit
+myˆs k‰ytt‰‰ Sarkain n‰pp‰int‰ selataksesi ikkuunoiden elementtej‰,
+kullakin hetkell‰ k‰ytˆss‰ oleva elementti on korostettu.
+
+3. Pelin aloitus
+
+Pelin alkaessa sinulta kysyt‰‰n nimimerkki‰ ja haluamaasi kysymysten
+m‰‰r‰‰. Mahdollisten kysymysten maksimi m‰‰r‰ on riippuvainen kysymys-
+tiedoston (tiedostot.txt) sis‰llˆst‰. Kun olet syˆtt‰nyt nimesi, voit aloittaa pelin
+klikkaamalla "Aloita" -nappulaa
+
+
+4. Pelin kulku
+
+Pelin p‰‰ikkunassa peli esitt‰‰ sinulle kysymyksen ja antaa sille nelj‰
+vastausvaihtoehtoa. Klikattuasi oikeaa vastausvaihtoehtoa, peli esitt‰‰ 
+sinulle uuden kysymyksen ja sen vastausvaihtoedhot. Peli jatkuu, kunnes 
+olet vastannut aloitusikkunassa valitsemaasi m‰‰r‰‰n kysymyksi‰. 
+P‰‰ikkunasta sinun on mahdollista k‰ytt‰‰ erilaisia toimintoja myˆs valikon 
+kautta, josta kerrotaan lis‰‰ luvussa 5.
+
+
+5. Pelin lopetusikkuna
+
+Kun olet vastannut kysymyksiin, peli ilmoittaa sinulle ansaitsemasi pisteet
+(Yksi oikea vastaus tarkoittaa yht‰ pistett‰). Lopetus ikkunasta voit aloittaa
+pelin alusta valitsemalla "Aloita alusta", jolloin peli palauttaa sinut aloitusikku-
+naan tai vaihtoehtoisesti voit sulkea pelin valitsemalla sulje.
+
+
+6. P‰‰ikkunan menutoiminnot
+
+Pelin p‰‰ikkunassa sinulla on k‰ytett‰viss‰si kaksi valikkoa, joiden rakenne
+on seuraava:
+
+Valikko
+|
++----- Aloita alusta: Aloittaa pelin alusta ja paluttaa sinut p‰‰ikkunaan.
+|
++----- Sulje: Sulkee pelin (Huom! Keskener‰inen peli ei tallennu!)
+
+Ohje
+|
++----- N‰yt‰ ohje: N‰ytt‰‰ t‰m‰n ikkunan
+|
++----- Tietoja: N‰ytt‰‰ pelin nimen, version, valmistumisp‰iv‰m‰‰r‰n ja teki-
+                          j‰n nimen
+
+
+7. Kysymykset.txt
+
+Tietovisa lukee peliss‰ k‰ytett‰v‰t kysmykset k‰ynnistystiedoston kanssa
+samassa kansiossa olevasta "Kysymykset.txt" tiedostosta. T‰m‰ tiedosto on
+muokattavissa tavallisilla tekstieditoreilla, joten voit itse halutessasi lis‰t‰
+peliin uusia kysymyksi‰ haastamaan yst‰viesi aivonystyrˆit‰ tai muuttaen
+tietovisasta n‰pp‰r‰n kyselykoneen ensiviikon tentti‰ varten.
+
+Tiedostossa yhteen kysymykseen liittyv‰t tiedot ovat omalla rivill‰‰n, ja
+niiden muotoilu on seuraava:
+
+Kysymys|VaihtoehtoA|VaihtoehtoB|VaihtoehtoC|VaihtoehtoD|Oikean-
+vastauksen kirjain
+
+Esim.
+
+Paljonko on 1+1?|5|4|3|2|D
+
+Tiedostossa on oltava v‰hint‰‰n yksi oikeassa muodossa annettu kysymys,
+mik‰li n‰in ei ole, peli ilmoittaa siit‰ aloitusikkunan auetessa.
+
+Mik‰li tahdot kirjoittaa kommentteja tiedostoon, aloita kommenttirivit
+* -merkill‰.puun.

@@ -1,0 +1,17 @@
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\bin\Debug\Tietovisa.exe
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\bin\Debug\Tietovisa.pdb
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.Aloitusikkuna.resources
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.Lopetusikkuna.resources
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.Paaikkuna.resources
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.Properties.Resources.resources
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.exe
+c:\users\lazu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.pdb
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.Tietoikkuna.resources
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.Ohjeistus.resources
+C:\Users\LaZu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\bin\Debug\Tietovisa.exe.manifest
+C:\Users\LaZu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\bin\Debug\Tietovisa.application
+C:\Users\LaZu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.exe.manifest
+C:\Users\LaZu\documents\visual studio 2010\Projects\Tietovisa\Tietovisa\obj\x86\Debug\Tietovisa.application

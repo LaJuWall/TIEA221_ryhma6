@@ -1,0 +1,17 @@
+*Kysymykset on kirjoitettava muodossa: KYSYMYS|VAIHTOEHTO_A|VAIHTOEHTO_B|VAIHTOEHTO_C|VAIHTOEHTO_D|OIKEAN VASTAUKSEN KIRJAIN
+*Esimerkiksi: Oletko sin‰ elossa?|Kyll‰|En|Ehk‰|En tied‰|A
+Kikkelis vai kokkelis?|Kikkelis|Kokkelis|Ei kumpikaan|Molemmat|D
+Nintendon Wii konsolia seuraava konsoli on nimelt‰‰n...?|WiiU|Gamecube|VirtualBoy|Us|A
+Kultapossun yst‰v‰ on...|Harri Harakka|Leo Leijona|Mato Matala|Kelju Kettu|B
+Kuka on suunnitellut ja n‰yttelee suosittua internetsarjan hahmoa /The Angry Videogame Nerd/?|Doug Walker|George Wilson|James Rolfe|Matt Thompson|C
+Mik‰ seuraavista ei ole enrgiajuomamerkki?|Pitbull|Mad-Croc|XL|EnergyKing|D
+Mik‰ on t‰m‰n pelin tekij‰n etunimi?|Jukka|Pertsa|Lasse|Ville|C
+Kuinka paljon on 1+1?|2|3|4|Ei mik‰‰n edelleolevista|A
+Montako vastausvaihtoehtoa t‰ss‰ kysymyksess‰ on?|1|2|3|4|D
+Kuka seuraavista on SEGA nimisen peliyhtiˆn maskottihahmo?|Super Mario|Sonic the Hedgehog|Master Chief|Pac-man|B
+Hauki on...?|Kala|Kenk‰|Saapas|Lohi|A
+Kuinka monta kirjaa suositun mangasarjan /Dragon Ball/ suomenkielisess‰ julkaisussa on?|21|15|54|42|D
+Mik‰ on t‰m‰n pelin nimi?|TriviaKisa|Trivial Pursuit|Tietovisa|Voitto kotiin|C
+Mik‰ on katana?|Ruokalaji|Ter‰ase|Kodinkone|Soitin|B
+Mik‰ seuraavista on ep‰tosi?|3 x 3 = 9|Jukka on nimi|Maapallo on litte‰|Karjala on olutmerkki|C
+RedBull on...?|Olut|Energiajuoma|Makeinen|Ei mik‰‰n edelle olevista|B
