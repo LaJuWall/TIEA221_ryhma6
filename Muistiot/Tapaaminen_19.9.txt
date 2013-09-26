@@ -1,0 +1,17 @@
+19.9.2013, klo: 16:00
+TIEA221 Ryhm‰ 6 Tapaamisen muistio.
+
+Paikalla Lasse, Janne ja Reeta
+
+* Katseltiin Reetan suunnittelemien skenaarioiden puurakenteita.
+  (Kuvat uploadattu Githubiin)
+* Keskusteltiin hieman kysymysten tietorakenteesta.
+  - Kaikki kysymykset olisi yhdess‰ listassa.
+  - Jokaisella kysymyksell‰ oma ID:ns‰ ja jokainen kysymys tiet‰‰
+    sit‰ seuraavan kysymyksen ID:n
+* Haettiin uusi kuva anestiamonitorista, joka tallennettiin Jannen 
+  U-asemalle
+* Valmisteltiin huomista esitelm‰‰.
+  - Google docs presentaatio tehty, oikeudet jaettu muille.
+* Sovittiin seuraavasta palaverista IT-opiskelijoiden kesken
+  - Torstai 26.9.2013, klo 12
