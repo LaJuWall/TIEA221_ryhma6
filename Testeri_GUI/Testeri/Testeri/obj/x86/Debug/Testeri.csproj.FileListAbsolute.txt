@@ -1,0 +1,9 @@
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\bin\Debug\Testeri.exe
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\bin\Debug\Testeri.pdb
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\obj\x86\Debug\Testeri.VastausIkkuna.resources
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\obj\x86\Debug\Testeri.Properties.Resources.resources
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\obj\x86\Debug\Testeri.exe
+C:\Users\LaZu\Documents\Visual Studio 2010\Projects\Testeri\Testeri\obj\x86\Debug\Testeri.pdb
