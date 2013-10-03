@@ -1,0 +1,11 @@
+to 26.9. klo 12.00 ->
+* Tietorakenteen suunnittelua
+* Mietittiin kysymysluokalle attribuutteja ja metodeja.
+* Kysymysluokan yläpuolella kysymysluokka, joka hallinnoi kaikkia
+luokkia. (kts. kuvat)
+* Mietittiin miten skenaarioiden data kootaan. Kysymystauluun kootaan
+  kysymyksiä vastausvaihtoehtoineen. Vastaustauluun kootaan pelkät vastaukset.
+* Lasse tekee käyttöjärjestelmää.
+* Janne suunnittelee kysymykset ja vastaukset taulua.
+* Kristiina tekee näiden kahden välipalikan. Välipalikka osaa arpoa jonkun skenaarion kysymyksineen ja vastauksineen.
+* Seuraava tapaaminen pe 4.10. klo. 14->
