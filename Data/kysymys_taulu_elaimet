@@ -1,5 +1,5 @@
-;kid|kysymystext        |vid1|vid2|vid3|
-01  |Mitä karhu sanoo?  | 011| 015| 019|
-02  |Mitä Gorilla sanoo?| 012| 016| 020|
-03  |Mitä kana sanoo?   | 013| 017| 021|
-04  |Mitä koira sanoo?  | 014| 018| 022|
+;kid|kysymystext        |vid1|vid2|vid3|sid|
+01  |Mitä karhu sanoo?  | 011| 015| 019|001|
+02  |Mitä Gorilla sanoo?| 012| 016| 020|002|
+03  |Mitä kana sanoo?   | 013| 017| 021|003|
+04  |Mitä koira sanoo?  | 014| 018| 022|004|
