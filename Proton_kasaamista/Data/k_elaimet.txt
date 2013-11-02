@@ -1,0 +1,5 @@
+;kid|kysymystext|vid1|vid2|vid3|sid|
+01|Mita karhu sanoo?|011|015|019|001|
+02|Mita Gorilla sanoo?|012|016|020|002|
+03|Mita kana sanoo?|013|017|021|003|
+04|Mita koira sanoo?|014|018|022|004|

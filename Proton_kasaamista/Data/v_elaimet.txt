@@ -1,0 +1,13 @@
+;vid|vastaustext|kid|
+011|Mur mur mur|02|
+012|Mau mau mau|00|
+013|Plö plö plö|00|
+014|Oij oij oij|02|
+015|Hau hau hau|00|
+016|Öri öri öri|03|
+017|Muu muu muu|00|
+018|Bää bää bää|00|
+019|Sur sur sur|00|
+020|Röh röh röh|00|
+021|Kot kot kot|04|
+022|Vuh vuh vuh|01|

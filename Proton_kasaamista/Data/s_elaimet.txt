@@ -1,0 +1,5 @@
+sid|selitystext|
+001|seli seli 1|
+002|seli seli 2|
+003|seli seli 3|
+004|seli seli 4|
