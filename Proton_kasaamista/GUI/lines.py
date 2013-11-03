@@ -111,15 +111,15 @@ Builder.load_string('''
                 on_press: root.a_press(self)
 
             Button:
-                text: 'B'
+                text: root.b_btn_txt
                 on_press: root.b_press(self)
 
             Button:
-                text: 'C'
+                text: root.c_btn_txt
                 on_press: root.c_press(self)
 
             Button:
-                text: 'D'
+                text: root.d_btn_txt
                 on_press: root.d_press(self)
 
 ''')
@@ -127,36 +127,49 @@ Builder.load_string('''
 
 class KysymysLista():
     def __init__(self):
-        kysymykset = open("k_elaimet.txt")
-        self.taulukko = [row.strip().split('|') for row in kysymykset]
+        filu = open("kysymys.txt")
+        taulukko = [row.strip().split('|') for row in filu]
         #taulukko = kysymykset.readlines()
-        kysymykset.close()
-        self.taulukko.pop(0)
+        filu.close()
+        taulukko.pop(0)
+        self.kysymykset = []
+        for datalist in taulukko:
+            kysymys = Kysymys(datalist[0], datalist[1], datalist[2], datalist[3], datalist[4], datalist[5], datalist[6])
+            self.kysymykset.append(kysymys)
 
 class VastausLista():
     def __init__(self):
-        vastaukset = open("v_elaimet.txt")
-        self.taulukko = [row.strip().split('|') for row in vastaukset]
+        vastaukset = open("vastaus.txt")
+        taulukko = [row.strip().split('|') for row in vastaukset]
         #taulukko = kysymykset.readlines()
         vastaukset.close()
-        self.taulukko.pop(0)
+        taulukko.pop(0)
+        self.vastaukset = []
+        for datalist in taulukko:
+            vastaus = Vastaus(datalist[0], datalist[1], datalist[2])
+            self.vastaukset.append(vastaus)
 
 class SelitystenLista():
     def __init__(self):
-        selitykset = open("s_elaimet.txt")
-        self.taulukko = [row.strip().split('|') for row in selitykset]
+        selitykset = open("selitys.txt")
+        taulukko = [row.strip().split('|') for row in selitykset]
         #taulukko = kysymykset.readlines()
         selitykset.close()
-        self.taulukko.pop(0)
+        taulukko.pop(0)
+        self.selitykset = []
+        for datalist in taulukko:
+            selitys = Selitys(datalist[0], datalist[1])
+            self.selitykset.append(selitys)
 
 class Kysymys():
-    def __init__(self, k_id=None, k_txt=None, k_vid1=None, k_vid2=None, k_vid3=None, k_vid4=None):
+    def __init__(self, k_id=None, k_txt=None, k_vid1=None, k_vid2=None, k_vid3=None, k_vid4=None, k_sid=None):
         self.k_id = k_id
         self.k_txt = k_txt
         self.k_vid1 = k_vid1
         self.k_vid2 = k_vid2
         self.k_vid3 = k_vid3
         self.k_vid4 = k_vid4
+        self.k_sid = k_sid
 
 class Vastaus():
     def __init__(self, v_id=None, v_txt=None, v_skid=None):
@@ -171,36 +184,14 @@ class Selitys():
 
 class LinePlayground(FloatLayout):
     
-    kysymykset = KysymysLista()
-    print "****************"
-    print kysymykset.taulukko
-    print "****************"
-    
-    vastaukset = VastausLista()
-    print "****************"
-    print vastaukset.taulukko
-    print "****************"
-    
-    selitykset = SelitystenLista()
-    print "****************"
-    print vastaukset.taulukko
-    print "****************"
+    jatketaanko = True
 
-    a_btn_txt = StringProperty('''A''')
-    b_btn_txt = StringProperty('''B''')
-    c_btn_txt = StringProperty('''C''')
-    d_btn_txt = StringProperty('''D''')
-    label_txt = StringProperty('''TASSA ON KYMYSYS''')
-    sound = SoundLoader.load('testi.wav')
-    if sound:
-        print("Sound found at %s" % sound.source)
-        print("Sound is %.3f seconds" % sound.length)
-        sound.play()
-    if not sound:
-        print("EI SE MUSA TOIMI!!!")
+    kysymykset = KysymysLista()
+    vastaukset = VastausLista()
+
     
     def a_press(instance, value):
-        print instance.a_btn_txt
+        #print instance.a_btn_txt
         sound = SoundLoader.load('testi2.wav')
         if sound:
             print("Sound found at %s" % sound.source)
@@ -208,14 +199,7 @@ class LinePlayground(FloatLayout):
             sound.play()
         if not sound:
             print("EI SE AANI TOIMI!!!")
-        instance.a_btn_txt = "Nyt A vaihtui"
-        instance.label_txt = "Nyt kysymys vaihtui"
-        popup = Popup(title="Painoit nappulaa!",
-            content=Label(text='Painoit A:ta'),
-            size_hint=(None, None),
-            size=(400, 400))
-        popup.open()
-        print instance.a_btn_txt
+        instance.tarkista_vastaus("A", instance.vastaukset_nyt)
 
     def b_press(instance, value):
         sound = SoundLoader.load('testi2.wav')
@@ -225,11 +209,7 @@ class LinePlayground(FloatLayout):
             sound.play()
         if not sound:
             print("EI SE AANI TOIMI!!!")
-        popup = Popup(title="Painoit nappulaa!",
-            content=Label(text='Painoit B:ta'),
-            size_hint=(None, None),
-            size=(400, 400))
-        popup.open()
+        instance.tarkista_vastaus("B", instance.vastaukset_nyt)
 
     def c_press(instance, value):
         sound = SoundLoader.load('testi2.wav')
@@ -239,11 +219,8 @@ class LinePlayground(FloatLayout):
             sound.play()
         if not sound:
             print("EI SE AANI TOIMI!!!")
-        popup = Popup(title="Painoit nappulaa!",
-            content = Label(text="Painoit C:ta"),
-            size_hint=(None, None),
-            size=(400, 400))
-        popup.open()
+        instance.tarkista_vastaus("C", instance.vastaukset_nyt)
+        
 
     def d_press(instance, value):
         sound = SoundLoader.load('testi2.wav')
@@ -253,11 +230,112 @@ class LinePlayground(FloatLayout):
             sound.play()
         if not sound:
             print("EI SE AANI TOIMI!!!")
-        popup = Popup(title="Painoit nappulaa!",
-            content=Label(text='Painoit D:ta'),
-            size_hint=(None, None),
-            size=(400, 400))
-        popup.open()
+        instance.tarkista_vastaus("D", instance.vastaukset_nyt)
+        
+
+    def anna_kysymys(lista, h_id):
+        for kysymys in lista:
+          if kysymys.k_id == h_id:
+            return kysymys
+
+    def anna_vastaukset(kys, vas_lis):
+        palaute = []
+        v_idt = [kys.k_vid1, kys.k_vid2, kys.k_vid3, kys.k_vid4]
+        for v_id in v_idt:
+            for vas in vas_lis:
+                if vas.v_id == v_id:
+                    palaute.append(vas)
+        return palaute
+
+    def anna_kysymys_2(self, lista, h_id):
+        for kysymys in lista:
+          if kysymys.k_id == h_id:
+            return kysymys
+
+    def anna_vastaukset_2(self, kys, vas_lis):
+        palaute = []
+        v_idt = [kys.k_vid1, kys.k_vid2, kys.k_vid3, kys.k_vid4]
+        for v_id in v_idt:
+            for vas in vas_lis:
+                if vas.v_id == v_id:
+                    palaute.append(vas)
+        return palaute
+
+    def aseta_seuraava_kysymys(self, kys_id):
+        self.kysymys_nyt = self.anna_kysymys_2(self.kysymykset.kysymykset, kys_id)
+        self.vastaukset_nyt = self.anna_vastaukset_2(self.kysymys_nyt, self.vastaukset.vastaukset)
+        print "***** MIKA MATTAA??? *****"
+        print self.vastaukset_nyt[0].v_txt
+        print "MJAAAAAAAAAAAAAAAAHAS!!!"
+        self.a_btn_txt = self.vastaukset_nyt[0].v_txt
+        self.b_btn_txt = self.vastaukset_nyt[1].v_txt
+        self.c_btn_txt = self.vastaukset_nyt[2].v_txt
+        self.d_btn_txt = self.vastaukset_nyt[3].v_txt
+        self.label_txt = self.kysymys_nyt.k_txt
+
+    
+    def mitasSitten(self, annettu_id):
+        if annettu_id == "00":
+            print "Vaara vastaus napattu!"
+            quit()
+        if annettu_id == "01":
+            print "Sarjan loppuminen huomattu!"
+            quit()
+        self.aseta_seuraava_kysymys(annettu_id)
+
+    def tarkista_vastaus(self, vastaus, vastaukset):
+        if vastaus == "A":
+            self.mitasSitten(vastaukset[0].v_skid)
+        if vastaus == "B":
+            self.mitasSitten(vastaukset[1].v_skid)
+        if vastaus == "C":
+            self.mitasSitten(vastaukset[2].v_skid)
+        if vastaus == "D":
+            self.mitasSitten(vastaukset[3].v_skid)
+
+    def hae_selitys(self, kyssari, selitykset):
+        h_id = kyssari.k_sid
+        for seli in selitykset:
+            if seli.s_id == h_id:
+                return seli.s_txt
+        return "EI LOYTYNY"
+
+    def printtaa_k(lista):
+        print lista
+        for kyssari in lista:
+            print "******"
+            print "Kysymyksen ID on: " + kyssari.k_id
+            print "Kysymyksen teksti on: " + kyssari.k_txt
+            print "Kysymyksen vastaus_ID:t on: " + kyssari.k_vid1 + ", " + kyssari.k_vid2 + ", " +  kyssari.k_vid3 + ", " +  kyssari.k_vid4
+
+    def printtaa_v(lista):
+        print lista
+        for vastaus in lista:
+            print "******"
+            print "Vastauksen ID on: " + vastaus.v_id
+            print "Vastauksen teksti on: " + vastaus.v_txt
+            print "Vastauksen s_id on: " + vastaus.v_skid
+
+
+    printtaa_k(kysymykset.kysymykset)
+    printtaa_v(vastaukset.vastaukset)
+    kysymys_nyt = anna_kysymys(kysymykset.kysymykset, "01")
+    print kysymys_nyt.k_txt
+    vastaukset_nyt = anna_vastaukset(kysymys_nyt, vastaukset.vastaukset)
+    print vastaukset_nyt
+
+    a_btn_txt = StringProperty(vastaukset_nyt[0].v_txt)
+    b_btn_txt = StringProperty(vastaukset_nyt[1].v_txt)
+    c_btn_txt = StringProperty(vastaukset_nyt[2].v_txt)
+    d_btn_txt = StringProperty(vastaukset_nyt[3].v_txt)
+    label_txt = StringProperty(kysymys_nyt.k_txt)
+    sound = SoundLoader.load('testi.wav')
+    if sound:
+        print("Sound found at %s" % sound.source)
+        print("Sound is %.3f seconds" % sound.length)
+        sound.play()
+    if not sound:
+        print("EI SE MUSA TOIMI!!!")
 
 class TestLineApp(App):
     def build(self):

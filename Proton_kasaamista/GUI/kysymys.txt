@@ -1,0 +1,6 @@
+;kid|kysymystext|vid1|vid2|vid3|sid|
+01|MAP on 60. Mist‰ t‰m‰ arvo kertoo?|011|016|022|021|001|
+02|Mist‰ matalat verenpaineet voivat johtua?|026|017|022|012|002|
+03|Mit‰ seuraavista l‰‰kkeist‰ antaisit t‰ss‰ tilanteessa potilaalle?|018|013|027|023|003|
+04|Mik‰ on sopiva annos etilefniinia?|028|014|019|024|004|
+05|Mit‰ etilefniini voi tehd‰ pulssille?|015|029|020|025|005|
