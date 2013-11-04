@@ -41,19 +41,25 @@ Builder.load_string('''
             rgba: 1, .1, .1, .9
         Line:
             width: 2.
-            points: (0, 480, 374, 480)
+            points: root.points
 
         Color:
             rgba: .1, .1, 1, .9
         Line:
             width: 2.
-            points: (0, 600, 374, 600)
+            points: root.points2
 
         Color:
             rgba: .1, 1, .1, .9
         Line:
             width: 2.
-            points: (0, 720, 374, 720)
+            points: root.points3
+
+        Color
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: root.palikan_paikka
+            size: root.palikan_koko
 
     Label:
         pos: 187.5, 80
@@ -97,6 +103,11 @@ Builder.load_string('''
         pos: 0, -120
         font_size: 18
         text: root.label_txt
+
+    Label:
+        pos: -500, -500
+        font_size: 1
+        text: root.aloita_naytto(self)
 
     GridLayout:
         cols: 2
@@ -185,11 +196,15 @@ class Selitys():
 class LinePlayground(FloatLayout):
     
     jatketaanko = True
-
     kysymykset = KysymysLista()
     vastaukset = VastausLista()
+    points = ListProperty([0, 480, 374, 480])
+    points2 = ListProperty([0, 600, 374, 600])
+    points3 = ListProperty([0, 720, 374, 720])
+    dt = NumericProperty(0)
+    palikan_paikka = ListProperty([0, 405])
+    palikan_koko = ListProperty([375, 395]) 
 
-    
     def a_press(instance, value):
         #print instance.a_btn_txt
         sound = SoundLoader.load('testi2.wav')
@@ -273,15 +288,25 @@ class LinePlayground(FloatLayout):
         self.d_btn_txt = self.vastaukset_nyt[3].v_txt
         self.label_txt = self.kysymys_nyt.k_txt
 
-    
+
     def mitasSitten(self, annettu_id):
         if annettu_id == "00":
             print "Vaara vastaus napattu!"
-            quit()
+            popup = Popup(title="Game over",
+            content=Label(text='Vaara vastaus! Aloita alusta.'),
+            size_hint=(None, None),
+            size=(400, 400),
+            auto_dismiss=False)
+            popup.open()
         if annettu_id == "01":
-            print "Sarjan loppuminen huomattu!"
-            quit()
-        self.aseta_seuraava_kysymys(annettu_id)
+            popup = Popup(title="Congratulations!",
+            content=Label(text='Vastasit kaikkiin kysymyksiin oikein. Peli on ohi.'),
+            size_hint=(None, None),
+            size=(400, 400),
+            auto_dismiss=False)
+            popup.open()
+        else:
+            self.aseta_seuraava_kysymys(annettu_id)
 
     def tarkista_vastaus(self, vastaus, vastaukset):
         if vastaus == "A":
@@ -316,7 +341,84 @@ class LinePlayground(FloatLayout):
             print "Vastauksen teksti on: " + vastaus.v_txt
             print "Vastauksen s_id on: " + vastaus.v_skid
 
+    def animointi(self, value):
+        dt = 0.5
+        cy = 480.00
+        cx = 0.00
+        w = 380.00
+        print "!!!!!!!!!!!"
+        print cy
+        print cx
+        print w
+        print "!!!!!!!!!!!"
+        step = 10
+        points = []
+        self.dt += dt
+        for i in xrange(int(w / step)):
+            x = i * step
+            points.append(cx + x)
+            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+        self.points = points
 
+    def animointi_2(self, value):
+        dt = 0.5
+        cy = 600.00
+        cx = 0.00
+        w = 380.00
+        print "!!!!!!!!!!!"
+        print cy
+        print cx
+        print w
+        print "!!!!!!!!!!!"
+        step = 10
+        points = []
+        self.dt += dt
+        for i in xrange(int(w / step)):
+            x = i * step
+            points.append(cx + x)
+            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+        self.points2 = points
+
+    def animointi_3(self, value):
+        dt = 0.5
+        cy = 720.00
+        cx = 0.00
+        w = 380.00
+        print "!!!!!!!!!!!"
+        print cy
+        print cx
+        print w
+        print "!!!!!!!!!!!"
+        step = 10
+        points = []
+        self.dt += dt
+        for i in xrange(int(w / step)):
+            x = i * step
+            points.append(cx + x)
+            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+        self.points3 = points
+
+    def palikka_anim_start(self, value):
+        self.animointi(self)
+        self.animointi_2(self)
+        self.animointi_3(self)
+        Clock.schedule_interval(self.paivita_palikan_paikka, 0)
+
+    def paivita_palikan_paikka(self, dt):
+        if self.palikan_koko[0] > 15:
+            self.palikan_koko[0] += -1
+        self.palikan_paikka[0] += 1
+        if self.palikan_paikka[0] == 360:
+            self.palikan_paikka[0] = 0
+
+    def aloita_naytto(self, value):
+        print "aloita_naytto startattu!!!"
+        self.animointi(self)
+        self.animointi_2(self)
+        self.animointi_3(self)
+        Clock.schedule_interval(self.paivita_palikan_paikka, 0)
+        return " "   
+        
     printtaa_k(kysymykset.kysymykset)
     printtaa_v(vastaukset.vastaukset)
     kysymys_nyt = anna_kysymys(kysymykset.kysymykset, "01")

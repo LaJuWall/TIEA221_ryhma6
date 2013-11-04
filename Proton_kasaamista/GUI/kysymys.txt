@@ -4,3 +4,4 @@
 03|Mit‰ seuraavista l‰‰kkeist‰ antaisit t‰ss‰ tilanteessa potilaalle?|018|013|027|023|003|
 04|Mik‰ on sopiva annos etilefniinia?|028|014|019|024|004|
 05|Mit‰ etilefniini voi tehd‰ pulssille?|015|029|020|025|005|
+00|V‰‰rin meni!|000|000|000|000|000
