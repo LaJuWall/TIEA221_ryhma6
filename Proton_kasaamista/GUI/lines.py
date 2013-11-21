@@ -11,17 +11,11 @@ from kivy.uix.label import Label
 from kivy.core.audio import SoundLoader
 from kivy.properties import StringProperty
 
+""" Maaritetaan ikkunan korkeus ja leveys. """
 Config.set('graphics', 'width', '500')
 Config.set('graphics', 'height', '800')
 
-#kysymykset = open("k_elaimet.txt")
-#taulukko = [row.replace(" ", "").strip('\n').split('|') for row in kysymykset]
-#taulukko = kysymykset.readlines()
-#kysymykset.close()
-#print(taulukko)
-
-
-
+""" Maaritetaan naytoon piirtyvat elementit ja niiden ominaisuudet. """
 Builder.load_string('''
 <LinePlayground>:
     canvas:
@@ -135,12 +129,13 @@ Builder.load_string('''
 
 ''')
 
-
 class KysymysLista():
+    """ Luokka, jonka tehtavana on pitaa ylla listaa kaikista kaytossa olevista kysymyksista.
+        Muodostajassa kysymykset luetaan suoraan 'kysymys.txt' tiedostosta
+        TODO: Muodostajan pitaisi lukea tiedosto, jonka nimi annetaan esim parametrina. """
     def __init__(self):
         filu = open("kysymys.txt")
         taulukko = [row.strip().split('|') for row in filu]
-        #taulukko = kysymykset.readlines()
         filu.close()
         taulukko.pop(0)
         self.kysymykset = []
@@ -149,6 +144,9 @@ class KysymysLista():
             self.kysymykset.append(kysymys)
 
 class VastausLista():
+    """ Luokka, jonka tehtavana on yllapitaa listaa kaikista kaytossa olevista vastauksista.
+        Muodostajassa vastaukset luetaan suoraan 'vastaus.txt' tiedostosta
+        TODO: Muodostajan pitaisi lukea tiedosto, jonka nimi annetaan esim parametrina. """
     def __init__(self):
         vastaukset = open("vastaus.txt")
         taulukko = [row.strip().split('|') for row in vastaukset]
@@ -161,6 +159,9 @@ class VastausLista():
             self.vastaukset.append(vastaus)
 
 class SelitystenLista():
+    """ Luokka, jonka tehtavana on yllapitaa listaa kaikista kaytossa olevista selityksista.
+        Muodostajassa vastaukset luetaan suoraan 'selitys.txt' tiedostosta
+        TODO: Muodostajan pitaisi lukea tiedosto, jonka nimi annetaan esim parametrina. """
     def __init__(self):
         selitykset = open("selitys.txt")
         taulukko = [row.strip().split('|') for row in selitykset]
@@ -173,6 +174,8 @@ class SelitystenLista():
             self.selitykset.append(selitys)
 
 class Kysymys():
+    """ Kysymysluokka. Tarkoitus kasitella yksittaisen kysymyksen tietoja.
+        Muodostajaa asettaa tiedot annettujen patametrien pohjalta."""
     def __init__(self, k_id=None, k_txt=None, k_vid1=None, k_vid2=None, k_vid3=None, k_vid4=None, k_sid=None):
         self.k_id = k_id
         self.k_txt = k_txt
@@ -183,18 +186,26 @@ class Kysymys():
         self.k_sid = k_sid
 
 class Vastaus():
+    """ Vastausluokka. Tarkoitus kasitella yksittaisen vastauksen tietoja.
+        Muodstaja asettaa tiedot annettujen parametrien pohjalta. """
     def __init__(self, v_id=None, v_txt=None, v_skid=None):
         self.v_id = v_id
         self.v_txt = v_txt
         self.v_skid = v_skid
 
 class Selitys():
+    """ Selitysluokka. Tarkoitus kasitella yksittaisen vastauksen tietoja.
+        Muodstaja asettaa tiedot annettujen parametrien pohjalta.
+    """
     def __init__(self, s_id=None, s_txt=None):
         self.s_id = s_id
         self.s_txt = s_txt
 
+
 class LinePlayground(FloatLayout):
+    """ Luokka, jossa itse peli on kirjoitettu metodeineen. """
     
+    # Alustetaan tarpeelliset listat ja muuttujat
     jatketaanko = True
     kysymykset = KysymysLista()
     vastaukset = VastausLista()
@@ -206,7 +217,8 @@ class LinePlayground(FloatLayout):
     palikan_koko = ListProperty([375, 395]) 
 
     def a_press(instance, value):
-        #print instance.a_btn_txt
+        """ Kun pelaaja painaa A nappia, soitetaan painamisaani ja 
+            siirrytaan tarkastamaan vastauksen oikeellisuutta. """
         sound = SoundLoader.load('testi2.wav')
         if sound:
             print("Sound found at %s" % sound.source)
@@ -217,6 +229,8 @@ class LinePlayground(FloatLayout):
         instance.tarkista_vastaus("A", instance.vastaukset_nyt)
 
     def b_press(instance, value):
+        """ Kun pelaaja painaa B nappia, soitetaan painamisaani ja 
+            siirrytaan tarkastamaan vastauksen oikeellisuutta. """
         sound = SoundLoader.load('testi2.wav')
         if sound:
             print("Sound found at %s" % sound.source)
@@ -227,6 +241,8 @@ class LinePlayground(FloatLayout):
         instance.tarkista_vastaus("B", instance.vastaukset_nyt)
 
     def c_press(instance, value):
+        """ Kun pelaaja painaa C nappia, soitetaan painamisaani ja 
+            siirrytaan tarkastamaan vastauksen oikeellisuutta. """
         sound = SoundLoader.load('testi2.wav')
         if sound:
             print("Sound found at %s" % sound.source)
@@ -236,8 +252,9 @@ class LinePlayground(FloatLayout):
             print("EI SE AANI TOIMI!!!")
         instance.tarkista_vastaus("C", instance.vastaukset_nyt)
         
-
     def d_press(instance, value):
+        """ Kun pelaaja painaa D nappia, soitetaan painamisaani ja 
+            siirrytaan tarkastamaan vastauksen oikeellisuutta. """
         sound = SoundLoader.load('testi2.wav')
         if sound:
             print("Sound found at %s" % sound.source)
@@ -247,13 +264,16 @@ class LinePlayground(FloatLayout):
             print("EI SE AANI TOIMI!!!")
         instance.tarkista_vastaus("D", instance.vastaukset_nyt)
         
-
     def anna_kysymys(lista, h_id):
+        """ Palautetaan kysymyslistasta kysymysm jonka ID vastaa 
+            haettua ID:ta (h_id) """
         for kysymys in lista:
           if kysymys.k_id == h_id:
             return kysymys
 
     def anna_vastaukset(kys, vas_lis):
+        """ Palauttaa listana kaikki annettuun kysymykseen (kys) 
+            liittyvat vastaukset. """
         palaute = []
         v_idt = [kys.k_vid1, kys.k_vid2, kys.k_vid3, kys.k_vid4]
         for v_id in v_idt:
@@ -263,11 +283,15 @@ class LinePlayground(FloatLayout):
         return palaute
 
     def anna_kysymys_2(self, lista, h_id):
+        """ Purkka viritelma. Tekee saman kuin anna_kysymys, 
+            mutta tama toimii ohjelman kaynnistyksen yhteydessa. """
         for kysymys in lista:
           if kysymys.k_id == h_id:
             return kysymys
 
     def anna_vastaukset_2(self, kys, vas_lis):
+        """ Purkka viritelma. Tekee saman kuin anna_vastaukset, 
+            mutta tama toimii ohjelman kaynnistyksen yhteydessa. """
         palaute = []
         v_idt = [kys.k_vid1, kys.k_vid2, kys.k_vid3, kys.k_vid4]
         for v_id in v_idt:
@@ -277,11 +301,9 @@ class LinePlayground(FloatLayout):
         return palaute
 
     def aseta_seuraava_kysymys(self, kys_id):
+        """ Asettaa tamanhetkiseksi kysymykseksi kys_id:ta vastaavan kysymyksen. """
         self.kysymys_nyt = self.anna_kysymys_2(self.kysymykset.kysymykset, kys_id)
         self.vastaukset_nyt = self.anna_vastaukset_2(self.kysymys_nyt, self.vastaukset.vastaukset)
-        print "***** MIKA MATTAA??? *****"
-        print self.vastaukset_nyt[0].v_txt
-        print "MJAAAAAAAAAAAAAAAAHAS!!!"
         self.a_btn_txt = self.vastaukset_nyt[0].v_txt
         self.b_btn_txt = self.vastaukset_nyt[1].v_txt
         self.c_btn_txt = self.vastaukset_nyt[2].v_txt
@@ -290,6 +312,10 @@ class LinePlayground(FloatLayout):
 
 
     def mitasSitten(self, annettu_id):
+        """ Tarkistetaan mita tehdaan seuraavaksi. 
+            Mikali annettu_id on 00, pelaaja on vastannut vaarin. 
+            Mikali annettu_id on 01, pelaaja on saanut kysymyssarjan paatokseen. 
+            Muussa tapauksessa asetetaan seuraavakis annettu_id:ta vastaava kysymys. """
         if annettu_id == "00":
             print "Vaara vastaus napattu!"
             popup = Popup(title="Game over",
@@ -309,6 +335,12 @@ class LinePlayground(FloatLayout):
             self.aseta_seuraava_kysymys(annettu_id)
 
     def tarkista_vastaus(self, vastaus, vastaukset):
+        """ Lahetettaan mitasSitten metodille painalluksen mukainen vastaus. 
+            TODO: Mitas sitten kun vastausten paikat ovat arvottu. """
+
+        # Iffin jälkeen märitellään muuttuja ja sit tehään
+        # Mitäs sitten metdodin temput tässä? Ei tarvii tehä
+        # Yhtä ylimäärästä metodia.
         if vastaus == "A":
             self.mitasSitten(vastaukset[0].v_skid)
         if vastaus == "B":
@@ -319,6 +351,7 @@ class LinePlayground(FloatLayout):
             self.mitasSitten(vastaukset[3].v_skid)
 
     def hae_selitys(self, kyssari, selitykset):
+        """ Haetaan kysymykseen liitetty selitys. """
         h_id = kyssari.k_sid
         for seli in selitykset:
             if seli.s_id == h_id:
@@ -326,6 +359,8 @@ class LinePlayground(FloatLayout):
         return "EI LOYTYNY"
 
     def printtaa_k(lista):
+        """ Tama on vain testaukseen liittyva metodi. Tulostaa 
+            kaikkien listassa olevien kysymysten tiedot. """
         print lista
         for kyssari in lista:
             print "******"
@@ -334,6 +369,8 @@ class LinePlayground(FloatLayout):
             print "Kysymyksen vastaus_ID:t on: " + kyssari.k_vid1 + ", " + kyssari.k_vid2 + ", " +  kyssari.k_vid3 + ", " +  kyssari.k_vid4
 
     def printtaa_v(lista):
+        """ Tama on vain testaukseen liittyva metodi. Tulostaa 
+            kaikkien listassa olevien vastausten tiedot. """
         print lista
         for vastaus in lista:
             print "******"
@@ -342,15 +379,13 @@ class LinePlayground(FloatLayout):
             print "Vastauksen s_id on: " + vastaus.v_skid
 
     def animointi(self, value):
+        """ Maaritetaan points listan luvut. Naiden 
+            lukujen perusteella piirretaan monitorin viiva. """
+        # Tee kaikista animoitni metodeista yksi
         dt = 0.5
         cy = 480.00
         cx = 0.00
         w = 380.00
-        print "!!!!!!!!!!!"
-        print cy
-        print cx
-        print w
-        print "!!!!!!!!!!!"
         step = 10
         points = []
         self.dt += dt
@@ -361,15 +396,12 @@ class LinePlayground(FloatLayout):
         self.points = points
 
     def animointi_2(self, value):
+        """ Maaritetaan points2 listan luvut. Naiden 
+            lukujen perusteella piirretaan monitorin viiva. """
         dt = 0.5
         cy = 600.00
         cx = 0.00
         w = 380.00
-        print "!!!!!!!!!!!"
-        print cy
-        print cx
-        print w
-        print "!!!!!!!!!!!"
         step = 10
         points = []
         self.dt += dt
@@ -380,15 +412,12 @@ class LinePlayground(FloatLayout):
         self.points2 = points
 
     def animointi_3(self, value):
+        """ Maaritetaan points3 listan luvut. Naiden 
+            lukujen perusteella piirretaan monitorin viiva. """
         dt = 0.5
         cy = 720.00
         cx = 0.00
         w = 380.00
-        print "!!!!!!!!!!!"
-        print cy
-        print cx
-        print w
-        print "!!!!!!!!!!!"
         step = 10
         points = []
         self.dt += dt
@@ -399,12 +428,14 @@ class LinePlayground(FloatLayout):
         self.points3 = points
 
     def palikka_anim_start(self, value):
+        """ Purkkaa. Metodi kaynnistaa animaation """
         self.animointi(self)
         self.animointi_2(self)
         self.animointi_3(self)
         Clock.schedule_interval(self.paivita_palikan_paikka, 0)
 
     def paivita_palikan_paikka(self, dt):
+        """ Liikuttaa naytolla liikkuvaa mustaa palikkaa. """
         if self.palikan_koko[0] > 15:
             self.palikan_koko[0] += -1
         self.palikan_paikka[0] += 1
@@ -412,25 +443,31 @@ class LinePlayground(FloatLayout):
             self.palikan_paikka[0] = 0
 
     def aloita_naytto(self, value):
-        print "aloita_naytto startattu!!!"
+        """ Purkkaa. Metodi kaynnistaa animaation """
         self.animointi(self)
         self.animointi_2(self)
         self.animointi_3(self)
         Clock.schedule_interval(self.paivita_palikan_paikka, 0)
         return " "   
         
+    #printtailu tehty vain kehityksen helpottamiseksi.
     printtaa_k(kysymykset.kysymykset)
     printtaa_v(vastaukset.vastaukset)
+    #Otetaan kasiteltava kysymys ylos.
     kysymys_nyt = anna_kysymys(kysymykset.kysymykset, "01")
     print kysymys_nyt.k_txt
+    #Otetaan kasiteltavan kysymyksen vastaukset muistiin.
     vastaukset_nyt = anna_vastaukset(kysymys_nyt, vastaukset.vastaukset)
     print vastaukset_nyt
 
+    #Asetetaan nappuloiden ja kysymys_labelin teksti.
     a_btn_txt = StringProperty(vastaukset_nyt[0].v_txt)
     b_btn_txt = StringProperty(vastaukset_nyt[1].v_txt)
     c_btn_txt = StringProperty(vastaukset_nyt[2].v_txt)
     d_btn_txt = StringProperty(vastaukset_nyt[3].v_txt)
     label_txt = StringProperty(kysymys_nyt.k_txt)
+    
+    #Kaynnistetaan musiikki.
     sound = SoundLoader.load('testi.wav')
     if sound:
         print("Sound found at %s" % sound.source)
