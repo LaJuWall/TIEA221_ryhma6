@@ -10,7 +10,6 @@ from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 from kivy.core.audio import SoundLoader
 from kivy.properties import StringProperty
-from random import randint
 
 """ Maaritetaan ikkunan korkeus ja leveys. """
 Config.set('graphics', 'width', '500')
@@ -135,8 +134,7 @@ class KysymysLista():
         Muodostajassa kysymykset luetaan suoraan 'kysymys.txt' tiedostosta
         TODO: Muodostajan pitaisi lukea tiedosto, jonka nimi annetaan esim parametrina. """
     def __init__(self):
-        filename = 'kysymys' + str(randint(1,2)) + '.txt'
-        filu = open(filename)
+        filu = open("kysymys.txt")
         taulukko = [row.strip().split('|') for row in filu]
         filu.close()
         taulukko.pop(0)
