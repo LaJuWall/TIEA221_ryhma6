@@ -1,0 +1,1 @@
+Laita kaikki txt filut tuttuun tyyliin Kivyn kansioon.

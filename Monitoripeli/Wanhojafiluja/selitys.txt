@@ -1,0 +1,4 @@
+sid|selitystxt|
+001|puudutettu potilas (spinaali)|
+004|muista anestesial‰‰k‰rin m‰‰r‰ys! NIBP muuttuu monitorilla|
+005|HR muuttuu monitorissa, HR77|

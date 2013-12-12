@@ -1,0 +1,6 @@
+vas_id |vas_txt |kys_id |
+001    |oikein  |02     |
+002    |vaarin  |00     |
+003    |oikein  |03     |
+004    |oikein  |04     |
+005    |oikein  |01     |

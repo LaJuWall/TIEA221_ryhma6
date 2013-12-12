@@ -1,0 +1,21 @@
+;vid|vastaustext|kid|
+011|verenpaine on matala|02|
+012|puudutuksesta|03|
+013|etilefniinia|04|
+014|0,1mg|05|
+015|nostaa|01|
+016|potilas on liian syv‰ss‰ unessa|00|
+017|kivusta|00|
+018|fentanyylia|00|
+019|2mg|05|
+020|laskea|00|
+021|potilas hengitt‰‰ liian tihe‰sti|00|
+022|pelosta|00|
+023|bisoprololifumaraattia|00|
+024|1mg|00|
+025|ei mit‰‰n|00|
+026|v‰‰r‰st‰ l‰‰kityksest‰|00|
+027|buranaa|00|
+028|0,001mg|00|
+029|pys‰ytt‰‰|00|
+000| |00|

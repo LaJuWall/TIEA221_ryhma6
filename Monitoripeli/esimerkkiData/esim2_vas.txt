@@ -1,0 +1,6 @@
+vas_id |vas_txt |kys_id |
+001    |Jep_jep |02     |
+002    |vaarin  |00     |
+003    |Jap_Jap |03     |
+004    |Gap_Gap |04     |
+005    |Gao_Gao |01     |

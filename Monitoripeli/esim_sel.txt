@@ -1,0 +1,2 @@
+sel_id |sel_txt             |
+01     |tassapa_on_selitysta|

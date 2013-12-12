@@ -1,0 +1,2 @@
+sken_id |pohj_txt       |
+esim2   |liiba_laaba    |
