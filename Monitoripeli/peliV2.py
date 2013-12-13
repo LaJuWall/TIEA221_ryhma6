@@ -89,6 +89,13 @@ Builder.load_string('''
         font_size: 18
         text: root.label_txt
 
+    Button:
+        pos: 0, 775
+        size_hint: None, None
+        size: 95, 25
+        text: root.aanet_txt
+        on_press: root.toggleSound()
+
     GridLayout:
         cols: 2
         size_hint: 1, None
@@ -190,6 +197,43 @@ Builder.load_string('''
             font_size: '30sp'
             on_press: root.sulje()
 
+<AlkuContent>:
+    
+    orientation: 'horizontal'
+    padding: 10
+    spacing: 10
+
+    GridLayout:
+
+        cols: 1
+
+        Label:
+            text: 'Tervetuloa monitoripeliin'
+            bold: True
+            font_size: '25sp'
+        Widget:
+            heigth: 5
+        GridLayout:
+            cols: 1
+
+        Button:
+            id: close_button
+            text: 'Aloita peli'
+            font_size: '30sp'
+            on_press: root.on_close_button_clicked()
+
+        Button:
+            id: alusta_button
+            text: 'Info'
+            font_size: '30sp'
+            on_press: root.alotaAlusta()
+
+        Button:
+            id: sulje_button
+            text: 'Sulje peli'
+            font_size: '30sp'
+            on_press: root.sulje()
+
 ''')
 
 
@@ -219,6 +263,30 @@ class VaaraPopup(Popup):
         self.myparent = parent
         Popup.__init__(self, title=title)
         self.content = VaaraContent(text, self)
+
+    def lopetaPeli(self):
+        sys.exit()
+
+class AlkuContent(BoxLayout):
+
+    def __init__(self, parent):
+        BoxLayout.__init__(self)
+        self.myparent = parent
+
+    def on_close_button_clicked(self):
+        sys.exit
+
+    def alotaAlusta(self):
+        sys.exit
+
+    def sulje(self):
+        sys.exit()
+
+class MainMenu(Popup):
+
+    def __init__(self):
+        Popup.__init__(self)
+        self.content = AlkuContent(self)
 
     def lopetaPeli(self):
         sys.exit()
@@ -290,7 +358,33 @@ class MonitoriPeli(FloatLayout):
         self.peli.asetaSeuraavaSkenaario()
         self.paivitaNaytto()
 
+    def toggleSound(self):
+        if self.aanet:
+            self.aanet = False
+            self.sound.stop()
+            self.aanet_txt = "Äänet päälle"
+        else:
+            self.aanet = True
+            self.sound.play()
+            self.aanet_txt = "Äänet pois"
+
+    def Aloitus(self):
+        print "Tämä käynnistettiin!"
+        mainMenu = MainMenu()
+        mainMenu.open()
+        return " "
+
     peli = DataManager()
+    aanet = True
+    aanet_txt = StringProperty("Äänet pois")
+
+    sound = SoundLoader.load('testi.wav')
+    if sound:
+        print("Sound found at %s" % sound.source)
+        print("Sound is %.3f seconds" % sound.length)
+        sound.play()
+    if not sound:
+        print("EI SE MUSA TOIMI!!!")
 
     label_txt = StringProperty(peli.kysymys_nyt.k_txt)
     a_btn_txt = StringProperty(peli.vastaukset_nyt[0].v_txt)
@@ -305,14 +399,6 @@ class MonitoriPeli(FloatLayout):
     bis = StringProperty(peli.kysymys_nyt.k_arBis)
     mac = StringProperty(peli.kysymys_nyt.k_arMac)
     lamp = StringProperty(peli.kysymys_nyt.k_arLamp)
-
-    sound = SoundLoader.load('testi.wav')
-    if sound:
-        print("Sound found at %s" % sound.source)
-        print("Sound is %.3f seconds" % sound.length)
-        sound.play()
-    if not sound:
-        print("EI SE MUSA TOIMI!!!")
 
 class Peli(App):
     def build(self):
