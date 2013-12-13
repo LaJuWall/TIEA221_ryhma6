@@ -360,13 +360,13 @@ class MonitoriPeli(FloatLayout):
 
     def toggleSound(self):
         if self.aanet:
-            self.aanet = False
-            self.sound.stop()
-            self.aanet_txt = "Äänet päälle"
+           self.aanet = False
+           self.sound.stop()
+           self.aanet_txt = "Äänet päälle"
         else:
-            self.aanet = True
-            self.sound.play()
-            self.aanet_txt = "Äänet pois"
+           self.aanet = True
+           self.sound.play()
+           self.aanet_txt = "Äänet pois"
 
     def Aloitus(self):
         print "Tämä käynnistettiin!"
@@ -377,14 +377,8 @@ class MonitoriPeli(FloatLayout):
     peli = DataManager()
     aanet = True
     aanet_txt = StringProperty("Äänet pois")
-
-    sound = SoundLoader.load('testi.wav')
-    if sound:
-        print("Sound found at %s" % sound.source)
-        print("Sound is %.3f seconds" % sound.length)
-        sound.play()
-    if not sound:
-        print("EI SE MUSA TOIMI!!!")
+    nakyvyys = 0
+    disable = True
 
     label_txt = StringProperty(peli.kysymys_nyt.k_txt)
     a_btn_txt = StringProperty(peli.vastaukset_nyt[0].v_txt)
@@ -399,6 +393,14 @@ class MonitoriPeli(FloatLayout):
     bis = StringProperty(peli.kysymys_nyt.k_arBis)
     mac = StringProperty(peli.kysymys_nyt.k_arMac)
     lamp = StringProperty(peli.kysymys_nyt.k_arLamp)
+
+    sound = SoundLoader.load('testi.wav')
+    if sound:
+        print("Sound found at %s" % sound.source)
+        print("Sound is %.3f seconds" % sound.length)
+        sound.play()
+    if not sound:
+        print("EI SE MUSA TOIMI!!!")
 
 class Peli(App):
     def build(self):
