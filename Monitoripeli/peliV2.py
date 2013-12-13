@@ -96,6 +96,13 @@ Builder.load_string('''
         text: root.aanet_txt
         on_press: root.toggleSound()
 
+    Button:
+        pos: 96, 775
+        size_hint: None, None
+        size: 95, 25
+        text: 'Info'
+        on_press: root.NaytaInfo()
+
     GridLayout:
         cols: 2
         size_hint: 1, None
@@ -234,6 +241,31 @@ Builder.load_string('''
             font_size: '30sp'
             on_press: root.sulje()
 
+<InfoPopup>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: 'Info'
+    
+    GridLayout:
+        cols: 1
+
+
+        Label:
+            pos: 0, 0
+            text_size: root.width - 15, 60
+            padding_x: -7
+            text: 'Tekijät: Lasse Wallden, Janne Virkkunen, Kristiina Manninen & Reeta Parkkonen'
+
+        Label:
+            pos: 0, 0
+            text_size: root.width - 15, 90
+            padding_x: -7
+            text: 'Musiikki: "The Complex" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 3.0 http://creativecommons.org/ licenses/by/3.0/'
+
+        Button:
+            text: 'Sulje'
+            on_press: root.dismiss()
+
 ''')
 
 
@@ -300,6 +332,9 @@ class PeliLapiPopup(Popup):
 
     def lopetaPeli(self):
         sys.exit()
+
+class InfoPopup(Popup):
+    pass
 
 class MonitoriPeli(FloatLayout):
 
@@ -374,11 +409,13 @@ class MonitoriPeli(FloatLayout):
         mainMenu.open()
         return " "
 
+    def NaytaInfo(self):
+        poppi = InfoPopup()
+        poppi.open()
+
     peli = DataManager()
     aanet = True
     aanet_txt = StringProperty("Äänet pois")
-    nakyvyys = 0
-    disable = True
 
     label_txt = StringProperty(peli.kysymys_nyt.k_txt)
     a_btn_txt = StringProperty(peli.vastaukset_nyt[0].v_txt)
