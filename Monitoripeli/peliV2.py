@@ -43,6 +43,48 @@ Builder.load_string('''
             size: root.width, 2
 
     Label:
+        id: pulssi
+        pos: 185, 370
+        font_size: 18
+        text: root.pulssi
+
+    Label:
+        id: happisaturaatio
+        pos: 185, 270
+        font_size: 18
+        text: root.happiS
+
+    Label:
+        id: verenpaine
+        pos: 185, 170
+        font_size: 18
+        text: root.verP
+
+    Label:
+        id: co2
+        pos: 185, 70
+        font_size: 18
+        text: root.co2
+
+    Label:
+        id: BIS
+        pos: -185, -43
+        font_size: 18
+        text: root.bis
+
+    Label:
+        id: MAC
+        pos: -75, -43
+        font_size: 18
+        text: root.mac
+
+    Label:
+        id: lampotila
+        pos: 35, -43
+        font_size: 18
+        text: root.lamp
+
+    Label:
         pos: 0, -120
         font_size: 18
         text: root.label_txt
@@ -236,6 +278,13 @@ class MonitoriPeli(FloatLayout):
         self.b_btn_txt = self.peli.vastaukset_nyt[1].v_txt
         self.c_btn_txt = self.peli.vastaukset_nyt[2].v_txt
         self.d_btn_txt = self.peli.vastaukset_nyt[3].v_txt
+        self.pulssi = self.peli.kysymys_nyt.k_arPul
+        self.happiS = self.peli.kysymys_nyt.k_arHaps
+        self.verP = self.peli.kysymys_nyt.k_arVep
+        self.co2 = self.peli.kysymys_nyt.k_arCo2
+        self.bis = self.peli.kysymys_nyt.k_arBis
+        self.mac = self.peli.kysymys_nyt.k_arMac
+        self.lamp = self.peli.kysymys_nyt.k_arLamp
 
     def seuraavaSkenaario(self):
         self.peli.asetaSeuraavaSkenaario()
@@ -249,6 +298,13 @@ class MonitoriPeli(FloatLayout):
     c_btn_txt = StringProperty(peli.vastaukset_nyt[2].v_txt)
     d_btn_txt = StringProperty(peli.vastaukset_nyt[3].v_txt)
     selitys = StringProperty(peli.selitys_nyt)
+    pulssi = StringProperty(peli.kysymys_nyt.k_arPul)
+    happiS = StringProperty(peli.kysymys_nyt.k_arHaps)
+    verP = StringProperty(peli.kysymys_nyt.k_arVep)
+    co2 = StringProperty(peli.kysymys_nyt.k_arCo2)
+    bis = StringProperty(peli.kysymys_nyt.k_arBis)
+    mac = StringProperty(peli.kysymys_nyt.k_arMac)
+    lamp = StringProperty(peli.kysymys_nyt.k_arLamp)
 
     sound = SoundLoader.load('testi.wav')
     if sound:
