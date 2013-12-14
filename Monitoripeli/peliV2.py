@@ -28,6 +28,38 @@ Config.set('graphics', 'height', '800')
 
 """ Maaritetaan naytoon piirtyvat elementit ja niiden ominaisuudet. """
 Builder.load_string('''
+<Tausta>:
+    Label:
+        opacity: 0
+        pos: 0, 0
+        text: root.startUp()
+
+<Menuu>:
+    FloatLayout:
+        Label:
+            text: 'Tervetuloa monitoripeliin'
+            font_size: 30
+            size_hint: None, None
+            pos: 200, 600
+        Button:
+            text: 'Aloita peli'
+            size_hint: None, None
+            on_press: root.klikki()
+            pos: 75, 250
+            size: 350, 100
+        Button:
+            text: 'Info'
+            size_hint: None, None
+            on_press: root.NaytaInfo()
+            pos: 75, 150
+            size: 350, 100
+        Button:
+            text: 'Sulje peli'
+            size_hint: None, None
+            on_press: root.sulje()
+            pos: 75, 50
+            size: 350, 100
+
 <MonitoriPeli>:
     canvas:
         Rectangle:
@@ -442,9 +474,35 @@ class MonitoriPeli(FloatLayout):
     if not sound:
         print("EI SE MUSA TOIMI!!!")
 
+class Menuu(FloatLayout):
+    def __init__(self, parent):
+        FloatLayout.__init__(self)
+        self.myparent = parent
+
+    def klikki(self):
+        lisattava = MonitoriPeli()
+        self.myparent.add_widget(lisattava)
+        self.myparent.remove_widget(self)
+
+    def NaytaInfo(self):
+        poppi = InfoPopup()
+        poppi.open()
+
+    def sulje(self):
+        sys.exit()
+
+class Tausta(FloatLayout):
+
+    def startUp(self):
+        lisattava = Menuu(self)
+        self.add_widget(lisattava)
+        return " "
+
+
+
 class Peli(App):
     def build(self):
-        return MonitoriPeli()
+        return Tausta()
 
 if __name__ == '__main__':
     Peli().run()
