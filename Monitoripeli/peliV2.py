@@ -130,7 +130,7 @@ Builder.load_string('''
 <SkenLapiPopup>:
     size_hint: .5, .5
     auto_dismiss: False
-    title: 'Popup'
+    title: 'Monitoripeli'
     
     GridLayout:
         cols: 1
@@ -149,7 +149,7 @@ Builder.load_string('''
 <PeliLapiPopup>:
     size_hint: .5, .5
     auto_dismiss: False
-    title: 'Popup'
+    title: 'Monitoripeli'
     
     GridLayout:
         cols: 1
@@ -177,6 +177,7 @@ Builder.load_string('''
         cols: 1
 
         Label:
+            text_size: None, None
             id: textlabel
             text: root.text
             bold: True
@@ -252,14 +253,16 @@ Builder.load_string('''
 
         Label:
             pos: 0, 0
-            text_size: root.width - 15, 60
+            text_size: root.width - 15, 70
             padding_x: -7
+            padding_y: -9
             text: 'Tekijät: Lasse Wallden, Janne Virkkunen, Kristiina Manninen & Reeta Parkkonen'
 
         Label:
             pos: 0, 0
-            text_size: root.width - 15, 90
+            text_size: root.width - 15, 130
             padding_x: -7
+            padding_y: -10
             text: 'Musiikki: "The Complex" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 3.0 http://creativecommons.org/ licenses/by/3.0/'
 
         Button:
@@ -293,7 +296,7 @@ class VaaraPopup(Popup):
 
     def __init__(self, title, text, parent):
         self.myparent = parent
-        Popup.__init__(self, title=title)
+        Popup.__init__(self, title=" ", separator_color=[0.15, 0.15, 0.15, 0.15])
         self.content = VaaraContent(text, self)
 
     def lopetaPeli(self):
