@@ -41,38 +41,38 @@ Builder.load_string('''
             text: 'Tervetuloa monitoripeliin'
             font_size: 30
             size_hint: None, None
-            pos: 200, 600
+            pos: root.width * .4, 600
         Button:
             text: 'Aloita peli'
             size_hint: None, None
             on_press: root.klikki()
-            pos: 75, 250
-            size: 350, 100
+            pos: root.width * .15, 250
+            size: root.width * .7, 100
         Button:
             text: 'Info'
             size_hint: None, None
             on_press: root.NaytaInfo()
-            pos: 75, 150
-            size: 350, 100
+            pos: root.width * .15, 150
+            size: root.width * .7, 100
         Button:
             text: 'Sulje peli'
             size_hint: None, None
             on_press: root.sulje()
-            pos: 75, 50
-            size: 350, 100
+            pos: root.width * .15, 50
+            size: root.width * .7, 100
 
 <MonitoriPeli>:
     canvas:
         Rectangle:
-            pos: root.width * 3 / 4, 320
-            size: 2, 480
+            pos: root.width * 3 / 4, root.height * .5 -80
+            size: 2, root.height * .5 + 80
 
         Rectangle:
-            pos: 0, 320
+            pos: 0, root.height * .5 - 80
             size: root.width, 2
 
         Rectangle:
-            pos: 0, 400
+            pos: 0, root.height * .5
             size: root.width, 2
 
         # Käyrät
@@ -108,25 +108,25 @@ Builder.load_string('''
 
     Label:
         id: pulssi
-        pos: 185, 350
+        pos: root.width * .35, 350
         font_size: 18
         text: root.pulssi
 
     Label:
         id: happisaturaatio
-        pos: 185, 250
+        pos: root.width * .35, 250
         font_size: 18
         text: root.happiS
 
     Label:
         id: verenpaine
-        pos: 185, 150
+        pos: root.width * .35, 150
         font_size: 18
         text: root.verP
 
     Label:
         id: co2
-        pos: 185, 50
+        pos: root.width * .35, 50
         font_size: 18
         text: root.co2
 
@@ -154,14 +154,14 @@ Builder.load_string('''
         text: root.label_txt
 
     Button:
-        pos: 0, 775
+        pos: 0, root.height -25
         size_hint: None, None
         size: 95, 25
         text: root.aanet_txt
         on_press: root.toggleSound()
 
     Button:
-        pos: 96, 775
+        pos: 96, root.height -25
         size_hint: None, None
         size: 95, 25
         text: 'Info'
@@ -492,7 +492,7 @@ class MonitoriPeli(FloatLayout):
         dt = 0.5
         cy = 550.00
         cx = 0.00
-        w = 380.00
+        w = Config.getint('graphics', 'width') * .748
         step = 10
         points = []
         self.dt += dt
@@ -508,7 +508,7 @@ class MonitoriPeli(FloatLayout):
         dt = 0.5
         cy = 650.00
         cx = 0.00
-        w = 380.00
+        w = Config.getint('graphics', 'width') * .748
         step = 10
         points = []
         self.dt += dt
@@ -524,7 +524,7 @@ class MonitoriPeli(FloatLayout):
         dt = 0.5
         cy = 750.00
         cx = 0.00
-        w = 380.00
+        w = Config.getint('graphics', 'width') * .748
         step = 10
         points = []
         self.dt += dt
@@ -542,7 +542,7 @@ class MonitoriPeli(FloatLayout):
         dt = 0.5
         cy = 450.00
         cx = 0.00
-        w = 380.00
+        w = Config.getint('graphics', 'width') * .748
         step = 10
         points = []
         self.dt += dt
@@ -570,7 +570,7 @@ class MonitoriPeli(FloatLayout):
 
     dt = NumericProperty(0)
     palikan_paikka = ListProperty([0, 405])
-    palikan_koko = ListProperty([370, 405])
+    palikan_koko = ListProperty([370, Config.getint('graphics', 'height')* .45])
 
     label_txt = StringProperty(peli.kysymys_nyt.k_txt)
     a_btn_txt = StringProperty(peli.vastaukset_nyt[0].v_txt)
@@ -587,7 +587,7 @@ class MonitoriPeli(FloatLayout):
     lamp = StringProperty(peli.kysymys_nyt.k_arLamp)
     points = ListProperty([0, 550, 374, 550])  # toiseksi alimman käytän pisteet
     points2 = ListProperty([0, 650, 374, 650]) # toiseksi ylimmän käyrän pisteet
-    points3 = ListProperty([0, 750, 374, 750]) # ylimmän käyrän pisteet
+    points3 = ListProperty([0, 750, Config.getint('graphics', 'width') * .748, 750]) # ylimmän käyrän pisteet
     points4 = ListProperty([0, 450, 374, 450])  # alimman käytän pisteet
 
     sound = SoundLoader.load('testi.wav')
