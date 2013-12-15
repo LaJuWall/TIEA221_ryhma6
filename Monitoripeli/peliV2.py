@@ -246,7 +246,7 @@ Builder.load_string('''
         cols: 1
 
         Label:
-            text_size: None, None
+            text_size: root.width, 250
             id: textlabel
             text: root.text
             bold: True
