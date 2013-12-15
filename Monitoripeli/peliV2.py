@@ -74,27 +74,52 @@ Builder.load_string('''
             pos: 0, 400
             size: root.width, 2
 
+        # Käyrät
+        Color:
+            rgba: 1, .1, .1, .9
+        Line:
+            width: 2.
+            points: root.points
+
+        Color:
+            rgba: 1, 1, .1, .9
+        Line:
+            width: 2.
+            points: root.points2
+
+        Color:
+            rgba: .1, 1, .1, .9
+        Line:
+            width: 2.
+            points: root.points3
+
+        Color:
+            rgba: 1, 1, 1, .9
+        Line:
+            width: 2.
+            points: root.points4
+
     Label:
         id: pulssi
-        pos: 185, 370
+        pos: 185, 350
         font_size: 18
         text: root.pulssi
 
     Label:
         id: happisaturaatio
-        pos: 185, 270
+        pos: 185, 250
         font_size: 18
         text: root.happiS
 
     Label:
         id: verenpaine
-        pos: 185, 170
+        pos: 185, 150
         font_size: 18
         text: root.verP
 
     Label:
         id: co2
-        pos: 185, 70
+        pos: 185, 50
         font_size: 18
         text: root.co2
 
@@ -410,6 +435,18 @@ class MonitoriPeli(FloatLayout):
             self.peli.asetaSeuraavaKysymys(h_id)
             self.paivitaNaytto()
 
+    def kaynnista_viivat(self, do_animation):
+    	if do_animation:
+    		Clock.schedule_interval(self.animointi, 0.1)
+    		Clock.schedule_interval(self.animointi_2, 0.1)
+    		Clock.schedule_interval(self.animointi_3, 0.1)
+    		Clock.schedule_interval(self.animointi_4, 0.1)
+    	else:
+    		Clock.unschedule(self.animointi)
+    		Clock.unschedule(self.animointi_2)
+    		Clock.unschedule(self.animointi_3)
+    		Clock.unschedule(self.animointi_4)
+
     def paivitaNaytto(self):
         self.label_txt = self.peli.kysymys_nyt.k_txt
         self.a_btn_txt = self.peli.vastaukset_nyt[0].v_txt
@@ -422,7 +459,10 @@ class MonitoriPeli(FloatLayout):
         self.co2 = self.peli.kysymys_nyt.k_arCo2
         self.bis = self.peli.kysymys_nyt.k_arBis
         self.mac = self.peli.kysymys_nyt.k_arMac
-        self.lamp = self.peli.kysymys_nyt.k_arLamp
+        self.lamp = self.peli.kysymys_nyt.k_arLamp  
+        self.kaynnista_viivat(True) 
+
+           
 
     def seuraavaSkenaario(self):
         self.peli.asetaSeuraavaSkenaario()
@@ -441,8 +481,74 @@ class MonitoriPeli(FloatLayout):
     def Aloitus(self):
         print "Tämä käynnistettiin!"
         mainMenu = MainMenu()
-        mainMenu.open()
-        return " "
+        mainMenu.open() 
+        return " "        
+
+
+    def animointi(self, value):
+        """ Maaritetaan points listan luvut. Naiden 
+            lukujen perusteella piirretaan monitorin viiva. """
+        # Tee kaikista animoitni metodeista yksi
+        dt = 0.5
+        cy = 550.00
+        cx = 0.00
+        w = 380.00
+        step = 10
+        points = []
+        self.dt += dt
+        for i in xrange(int(w / step)):
+            x = i * step
+            points.append(cx + x)
+            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+        self.points = points
+   
+    def animointi_2(self, value):
+        """ Maaritetaan points2 listan luvut. Naiden 
+            lukujen perusteella piirretaan monitorin viiva. """
+        dt = 0.5
+        cy = 650.00
+        cx = 0.00
+        w = 380.00
+        step = 10
+        points = []
+        self.dt += dt
+        for i in xrange(int(w / step)):
+            x = i * step
+            points.append(cx + x)
+            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+        self.points2 = points
+   
+    def animointi_3(self, value):
+        """ Maaritetaan points3 listan luvut. Naiden 
+            ukujen perusteella piirretaan monitorin viiva. """
+        dt = 0.5
+        cy = 750.00
+        cx = 0.00
+        w = 380.00
+        step = 10
+        points = []
+        self.dt += dt
+        for i in xrange(int(w / step)):
+            x = i * step
+            points.append(cx + x)
+            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+        self.points3 = points
+
+    def animointi_4(self, value):
+        """ Maaritetaan points4 listan luvut. Naiden 
+            ukujen perusteella piirretaan monitorin viiva. """
+        dt = 0.5
+        cy = 450.00
+        cx = 0.00
+        w = 380.00
+        step = 10
+        points = []
+        self.dt += dt
+        for i in xrange(int(w / step)):
+            x = i * step
+            points.append(cx + x)
+            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+        self.points4 = points
 
     def NaytaInfo(self):
         poppi = InfoPopup()
@@ -451,6 +557,7 @@ class MonitoriPeli(FloatLayout):
     peli = DataManager()
     aanet = True
     aanet_txt = StringProperty("Äänet pois")
+    dt = NumericProperty(0)
 
     label_txt = StringProperty(peli.kysymys_nyt.k_txt)
     a_btn_txt = StringProperty(peli.vastaukset_nyt[0].v_txt)
@@ -465,11 +572,15 @@ class MonitoriPeli(FloatLayout):
     bis = StringProperty(peli.kysymys_nyt.k_arBis)
     mac = StringProperty(peli.kysymys_nyt.k_arMac)
     lamp = StringProperty(peli.kysymys_nyt.k_arLamp)
+    points = ListProperty([0, 550, 374, 550])  # toiseksi alimman käytän pisteet
+    points2 = ListProperty([0, 650, 374, 650]) # toiseksi ylimmän käyrän pisteet
+    points3 = ListProperty([0, 750, 374, 750]) # ylimmän käyrän pisteet
+    points4 = ListProperty([0, 450, 374, 450])  # alimman käytän pisteet
 
     sound = SoundLoader.load('testi.wav')
     if sound:
-        print("Sound found at %s" % sound.source)
-        print("Sound is %.3f seconds" % sound.length)
+        # print("Sound found at %s" % sound.source)
+        # print("Sound is %.3f seconds" % sound.length)
         sound.play()
     if not sound:
         print("EI SE MUSA TOIMI!!!")

@@ -520,7 +520,7 @@ class LinePlayground(FloatLayout):
     def animointi_3(self, value):
             """ Maaritetaan points3 listan luvut. Naiden 
                 lukujen perusteella piirretaan monitorin viiva. """
-            dt = 0.5
+            dt = 1.5
             cy = 720.00
             cx = 0.00
             w = 380.00
