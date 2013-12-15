@@ -384,6 +384,13 @@ class PohjaContent(BoxLayout):
         self.myparent = parent
 
     def on_close_button_clicked(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.myparent.dismiss()
 
 class PohjaPopup(Popup):
@@ -403,14 +410,35 @@ class VaaraContent(BoxLayout):
         self.myparent = parent
 
     def on_close_button_clicked(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.myparent.dismiss()
 
     def alotaAlusta(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.myparent.myparent.peli.aloitaAlusta()
         self.myparent.myparent.paivitaNaytto()
         self.myparent.dismiss()
 
     def sulje(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit()
 
 class VaaraPopup(Popup):
@@ -421,6 +449,13 @@ class VaaraPopup(Popup):
         self.content = VaaraContent(text, self)
 
     def lopetaPeli(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit()
 
 class AlkuContent(BoxLayout):
@@ -430,12 +465,33 @@ class AlkuContent(BoxLayout):
         self.myparent = parent
 
     def on_close_button_clicked(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit
 
     def alotaAlusta(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit
 
     def sulje(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit()
 
 class MainMenu(Popup):
@@ -445,6 +501,13 @@ class MainMenu(Popup):
         self.content = AlkuContent(self)
 
     def lopetaPeli(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit()
 
 class SkenLapiPopup(Popup):
@@ -454,9 +517,23 @@ class SkenLapiPopup(Popup):
         self.myparent = parent
 
     def lopetaPeli(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit()
 
     def seuraavaSkeni(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.myparent.pohjustus2 = self.myparent.peli.pohjustukset.annaPohjustus(self.myparent.peli.skenaario_nyt)
         self.myparent.pohjustus = self.myparent.pohjustus2.p_txt
         poppi = PohjaPopup(self.myparent.pohjustus, self.myparent)
@@ -470,9 +547,23 @@ class PeliLapiPopup(Popup):
         self.myparent = parent
 
     def lopetaPeli(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit()
 
     def seuraavaSkeni(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.myparent.pohjustus2 = self.myparent.peli.pohjustukset.annaPohjustus(self.myparent.peli.skenaario_nyt)
         self.myparent.pohjustus = self.myparent.pohjustus2.p_txt
         poppi = PohjaPopup(self.myparent.pohjustus, self.myparent)
@@ -485,15 +576,43 @@ class InfoPopup(Popup):
 class MonitoriPeli(FloatLayout):
 
     def a_press(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.jatketaanko(self.peli.vastaukset_nyt[0].v_skid)
 
     def b_press(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.jatketaanko(self.peli.vastaukset_nyt[1].v_skid)
 
     def c_press(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.jatketaanko(self.peli.vastaukset_nyt[2].v_skid)
 
     def d_press(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         self.jatketaanko(self.peli.vastaukset_nyt[3].v_skid)
         
     def jatketaanko(self, h_id):
@@ -549,6 +668,13 @@ class MonitoriPeli(FloatLayout):
         poppi.open()
 
     def toggleSound(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         if self.aanet:
            self.aanet = False
            self.sound.stop()
@@ -641,6 +767,13 @@ class MonitoriPeli(FloatLayout):
             self.palikan_paikka[0] = 0
 
     def NaytaInfo(self):
+    	sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         poppi = InfoPopup()
         poppi.open()
 
@@ -672,13 +805,13 @@ class MonitoriPeli(FloatLayout):
     points3 = ListProperty([0, Config.getint('graphics', 'height') * .9375, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .9375]) # ylimmän käyrän pisteet
     points4 = ListProperty([0, Config.getint('graphics', 'height') * .562, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .5625])  # alimman käytän pisteet
 
-    sound = SoundLoader.load('testi.wav')
+    sound = SoundLoader.load('testi.WAV')
     if sound:
-        # print("Sound found at %s" % sound.source)
-        # print("Sound is %.3f seconds" % sound.length)
+        #print("Sound found at %s" % sound.source)
+        #print("Sound is %.3f seconds" % sound.length)
         sound.play()
     if not sound:
-        print("EI SE MUSA TOIMI!!!")
+        print("EI SE AANI TOIMI!!!")
 
     def aloita_naytto(self, value):
         """ Purkkaa. Metodi kaynnistaa animaation """
@@ -700,13 +833,35 @@ class Menuu(FloatLayout):
         poppi = PohjaPopup(lisattava.pohjustus, lisattava)
         poppi.open()
         self.myparent.remove_widget(self)
+        sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
 
     def NaytaInfo(self):
         poppi = InfoPopup()
         poppi.open()
+        sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
 
     def sulje(self):
+        sound = SoundLoader.load('bliip.wav')
+        if sound:
+            print("Sound found at %s" % sound.source)
+            print("Sound is %.3f seconds" % sound.length)
+            sound.play()
+        if not sound:
+            print("EI SE AANI TOIMI!!!")
         sys.exit()
+
 
 class Tausta(FloatLayout):
 
