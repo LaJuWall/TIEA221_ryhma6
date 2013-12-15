@@ -490,7 +490,7 @@ class MonitoriPeli(FloatLayout):
             lukujen perusteella piirretaan monitorin viiva. """
         # Tee kaikista animoitni metodeista yksi
         dt = 0.5
-        cy = 550.00
+        cy = Config.getint('graphics', 'height') * .6875
         cx = 0.00
         w = Config.getint('graphics', 'width') * .748
         step = 10
@@ -506,7 +506,7 @@ class MonitoriPeli(FloatLayout):
         """ Maaritetaan points2 listan luvut. Naiden 
             lukujen perusteella piirretaan monitorin viiva. """
         dt = 0.5
-        cy = 650.00
+        cy = Config.getint('graphics', 'height') * .8125
         cx = 0.00
         w = Config.getint('graphics', 'width') * .748
         step = 10
@@ -522,7 +522,7 @@ class MonitoriPeli(FloatLayout):
         """ Maaritetaan points3 listan luvut. Naiden 
             ukujen perusteella piirretaan monitorin viiva. """
         dt = 0.5
-        cy = 750.00
+        cy = Config.getint('graphics', 'height') * .9375
         cx = 0.00
         w = Config.getint('graphics', 'width') * .748
         step = 10
@@ -540,7 +540,7 @@ class MonitoriPeli(FloatLayout):
         """ Maaritetaan points4 listan luvut. Naiden 
             ukujen perusteella piirretaan monitorin viiva. """
         dt = 0.5
-        cy = 450.00
+        cy = Config.getint('graphics', 'height') * .5625
         cx = 0.00
         w = Config.getint('graphics', 'width') * .748
         step = 10
@@ -569,8 +569,8 @@ class MonitoriPeli(FloatLayout):
     aanet_txt = StringProperty("Äänet pois")
 
     dt = NumericProperty(0)
-    palikan_paikka = ListProperty([0, 405])
-    palikan_koko = ListProperty([370, Config.getint('graphics', 'height')* .45])
+    palikan_paikka = ListProperty([0, Config.getint('graphics', 'height')* .5 + 5])
+    palikan_koko = ListProperty([Config.getint('graphics', 'width')* .748, Config.getint('graphics', 'height')* .5 ])
 
     label_txt = StringProperty(peli.kysymys_nyt.k_txt)
     a_btn_txt = StringProperty(peli.vastaukset_nyt[0].v_txt)
@@ -585,10 +585,10 @@ class MonitoriPeli(FloatLayout):
     bis = StringProperty(peli.kysymys_nyt.k_arBis)
     mac = StringProperty(peli.kysymys_nyt.k_arMac)
     lamp = StringProperty(peli.kysymys_nyt.k_arLamp)
-    points = ListProperty([0, 550, 374, 550])  # toiseksi alimman käytän pisteet
-    points2 = ListProperty([0, 650, 374, 650]) # toiseksi ylimmän käyrän pisteet
-    points3 = ListProperty([0, 750, Config.getint('graphics', 'width') * .748, 750]) # ylimmän käyrän pisteet
-    points4 = ListProperty([0, 450, 374, 450])  # alimman käytän pisteet
+    points = ListProperty([0, Config.getint('graphics', 'height') * .6875, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .6875])  # toiseksi alimman käytän pisteet
+    points2 = ListProperty([0, Config.getint('graphics', 'height') * .8125, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .8125]) # toiseksi ylimmän käyrän pisteet
+    points3 = ListProperty([0, Config.getint('graphics', 'height') * .9375, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .9375]) # ylimmän käyrän pisteet
+    points4 = ListProperty([0, Config.getint('graphics', 'height') * .562, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .5625])  # alimman käytän pisteet
 
     sound = SoundLoader.load('testi.wav')
     if sound:
