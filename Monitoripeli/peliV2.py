@@ -451,6 +451,8 @@ class SkenLapiPopup(Popup):
         sys.exit()
 
     def seuraavaSkeni(self):
+        self.myparent.pohjustus2 = self.myparent.peli.pohjustukset.annaPohjustus(self.myparent.peli.skenaario_nyt)
+        self.myparent.pohjustus = self.myparent.pohjustus2.p_txt
         poppi = PohjaPopup(self.myparent.pohjustus, self.myparent)
         poppi.open()
         self.dismiss()
@@ -465,6 +467,8 @@ class PeliLapiPopup(Popup):
         sys.exit()
 
     def seuraavaSkeni(self):
+        self.myparent.pohjustus2 = self.myparent.peli.pohjustukset.annaPohjustus(self.myparent.peli.skenaario_nyt)
+        self.myparent.pohjustus = self.myparent.pohjustus2.p_txt
         poppi = PohjaPopup(self.myparent.pohjustus, self.myparent)
         poppi.open()
         self.dismiss()
