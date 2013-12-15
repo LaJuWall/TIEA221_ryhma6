@@ -1,6 +1,5 @@
-kys_id |kys_txt       |vas_id1 |vas_id2 |vas_id3 |vas_id4 |sel_id |ar_pul |ar_haps |ar_verp |ar_co2 |ar_bis |ar_mac |ar_lamp |
-00     |              |001     |002     |002     |002     |01     |101    |102     |103     |104    |105    |106    |107     |
-01     |eka_kysymys   |001     |002     |002     |002     |01     |101    |102     |103     |104    |105    |106    |107     |
-02     |toka_kysymys  |002     |002     |003     |002     |01     |201    |202     |203     |204    |205    |206    |207     |
-03     |kolmas_kysymys|002     |004     |002     |002     |01     |301    |302     |303     |304    |305    |306    |307     |
-04     |neljas_kysymys|002     |002     |002     |005     |01     |401    |402     |403     |404    |405    |406    |407     |
+kys_id |kys_txt                                                |vas_id1 |vas_id2 |vas_id3 |vas_id4 |sel_id |ar_pul    |ar_haps  |ar_verp      |ar_co2 |ar_bis     |ar_mac     |ar_lamp   |
+00     |Mikä_on_pielessä?                                      |001     |002     |003     |004     |01     |75        |100%     |89/47 (67)   |4,7    |BIS 57     |mac 1,1    |T 34,2    |
+01     |Mikä_on_pielessä?                                      |001     |002     |003     |004     |01     |75        |100%     |89/47 (67)   |4,7    |BIS 57     |mac 1,1    |T 34,2    |
+02     |Millä_seuraavista_keinoista_voit_lämmittää_potilasta?  |005     |006     |007     |008     |02     |75        |100%     |89/47 (67)   |4,7    |BIS 57     |mac 1,1    |T 34,2    |
+03     |Mitä_haittaa_on_potilaan_alhaisesta_lämpötilasta?      |009     |010     |011     |012     |03     |95        |100%     |120/75 (83)  |4,8    |BIS 68     |mac 0,8    |T 36,4    |

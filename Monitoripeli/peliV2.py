@@ -19,6 +19,7 @@ import random
 import dataManageri
 from dataManageri import DataManager
 import sys
+from decimal import Decimal
 
 """ Maaritetaan ikkunan korkeus ja leveys. """
 Config.set('graphics', 'width', '500')
@@ -98,6 +99,12 @@ Builder.load_string('''
         Line:
             width: 2.
             points: root.points4
+
+        Color
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: root.palikan_paikka
+            size: root.palikan_koko
 
     Label:
         id: pulssi
@@ -435,17 +442,6 @@ class MonitoriPeli(FloatLayout):
             self.peli.asetaSeuraavaKysymys(h_id)
             self.paivitaNaytto()
 
-    def kaynnista_viivat(self, do_animation):
-    	if do_animation:
-    		Clock.schedule_interval(self.animointi, 0.1)
-    		Clock.schedule_interval(self.animointi_2, 0.1)
-    		Clock.schedule_interval(self.animointi_3, 0.1)
-    		Clock.schedule_interval(self.animointi_4, 0.1)
-    	else:
-    		Clock.unschedule(self.animointi)
-    		Clock.unschedule(self.animointi_2)
-    		Clock.unschedule(self.animointi_3)
-    		Clock.unschedule(self.animointi_4)
 
     def paivitaNaytto(self):
         self.label_txt = self.peli.kysymys_nyt.k_txt
@@ -460,7 +456,11 @@ class MonitoriPeli(FloatLayout):
         self.bis = self.peli.kysymys_nyt.k_arBis
         self.mac = self.peli.kysymys_nyt.k_arMac
         self.lamp = self.peli.kysymys_nyt.k_arLamp  
-        self.kaynnista_viivat(True) 
+        self.animointi()
+        self.animointi_2() 
+        self.animointi_3(self.pulssi) 
+        self.animointi_4()
+        Clock.schedule_interval(self.paivita_palikan_paikka, 0)
 
            
 
@@ -485,7 +485,7 @@ class MonitoriPeli(FloatLayout):
         return " "        
 
 
-    def animointi(self, value):
+    def animointi(self):
         """ Maaritetaan points listan luvut. Naiden 
             lukujen perusteella piirretaan monitorin viiva. """
         # Tee kaikista animoitni metodeista yksi
@@ -502,7 +502,7 @@ class MonitoriPeli(FloatLayout):
             points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
         self.points = points
    
-    def animointi_2(self, value):
+    def animointi_2(self):
         """ Maaritetaan points2 listan luvut. Naiden 
             lukujen perusteella piirretaan monitorin viiva. """
         dt = 0.5
@@ -515,10 +515,10 @@ class MonitoriPeli(FloatLayout):
         for i in xrange(int(w / step)):
             x = i * step
             points.append(cx + x)
-            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+            points.append(cy + cos(x / w * 25. + self.dt) * 240.00 * 0.2)
         self.points2 = points
    
-    def animointi_3(self, value):
+    def animointi_3(self, pulssi):
         """ Maaritetaan points3 listan luvut. Naiden 
             ukujen perusteella piirretaan monitorin viiva. """
         dt = 0.5
@@ -528,13 +528,15 @@ class MonitoriPeli(FloatLayout):
         step = 10
         points = []
         self.dt += dt
+        intervalli = (float(pulssi) / 100.0) * 1.5
+        print intervalli
         for i in xrange(int(w / step)):
             x = i * step
             points.append(cx + x)
-            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+            points.append(cy + cos(x / w * (intervalli*10.) + self.dt) * 240.00 * 0.2)
         self.points3 = points
 
-    def animointi_4(self, value):
+    def animointi_4(self):
         """ Maaritetaan points4 listan luvut. Naiden 
             ukujen perusteella piirretaan monitorin viiva. """
         dt = 0.5
@@ -547,8 +549,16 @@ class MonitoriPeli(FloatLayout):
         for i in xrange(int(w / step)):
             x = i * step
             points.append(cx + x)
-            points.append(cy + cos(x / w * 8. + self.dt) * 240.00 * 0.2)
+            points.append(cy + sin(x / w * 8. + self.dt) * 120.00 * 0.2)
         self.points4 = points
+
+    def paivita_palikan_paikka(self, dt):
+        """ Liikuttaa naytolla liikkuvaa mustaa palikkaa. """
+        if self.palikan_koko[0] > 15:
+            self.palikan_koko[0] += -1
+        self.palikan_paikka[0] += 1
+        if self.palikan_paikka[0] == 360:
+            self.palikan_paikka[0] = 0
 
     def NaytaInfo(self):
         poppi = InfoPopup()
@@ -557,7 +567,10 @@ class MonitoriPeli(FloatLayout):
     peli = DataManager()
     aanet = True
     aanet_txt = StringProperty("Äänet pois")
+
     dt = NumericProperty(0)
+    palikan_paikka = ListProperty([0, 405])
+    palikan_koko = ListProperty([370, 405])
 
     label_txt = StringProperty(peli.kysymys_nyt.k_txt)
     a_btn_txt = StringProperty(peli.vastaukset_nyt[0].v_txt)

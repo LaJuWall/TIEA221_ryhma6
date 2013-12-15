@@ -1,2 +1,4 @@
-sel_id |sel_txt                    |
-01     |tassapa_on_toista_selitysta|
+sel_id |sel_txt             														                                |
+01     |Lihasrelaksantti_lamaa_potilaan_lihastoiminnan_ja_samalla_potilaan_kyvyn_hengittää_itse.                    |
+02     |EtCo2_kertoo_ulostulevasta_hiilidioksidista.                                                                |
+03     |Larynxaskia_käytettäessä_etCo2_on_hieman_korkeampi._6,2_on_kyseiseeä_tilanteessa_vielä_normaalin_rajoissa.  |
