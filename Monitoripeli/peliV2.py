@@ -649,6 +649,8 @@ class MonitoriPeli(FloatLayout):
     bis = StringProperty(peli.kysymys_nyt.k_arBis)
     mac = StringProperty(peli.kysymys_nyt.k_arMac)
     lamp = StringProperty(peli.kysymys_nyt.k_arLamp)
+    pohjustus2 = peli.pohjustukset.annaPohjustus(peli.skenaario_nyt)
+    pohjustus = pohjustus2.p_txt
     points = ListProperty([0, Config.getint('graphics', 'height') * .6875, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .6875])  # toiseksi alimman käytän pisteet
     points2 = ListProperty([0, Config.getint('graphics', 'height') * .8125, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .8125]) # toiseksi ylimmän käyrän pisteet
     points3 = ListProperty([0, Config.getint('graphics', 'height') * .9375, Config.getint('graphics', 'width') * .748, Config.getint('graphics', 'height') * .9375]) # ylimmän käyrän pisteet
