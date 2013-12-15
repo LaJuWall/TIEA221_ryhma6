@@ -536,7 +536,7 @@ class MonitoriPeli(FloatLayout):
     def seuraavaSkenaario(self):
         self.peli.asetaSeuraavaSkenaario()
         self.pohjustus2 = self.peli.pohjustukset.annaPohjustus(self.peli.skenaario_nyt)
-        self.pohjustus = self.pohjustus2.txt
+        self.pohjustus = self.pohjustus2.p_txt
         self.paivitaNaytto()
         poppi = PohjaPopup(self.pohjustus, self)
         poppi.open()
