@@ -106,6 +106,12 @@ Builder.load_string('''
             pos: root.palikan_paikka
             size: root.palikan_koko
 
+
+    Label:
+        pos: -500, -500
+        font_size: 1
+        text: root.aloita_naytto(self)
+
     Label:
         id: pulssi
         pos: root.width * .35, 350
@@ -528,14 +534,11 @@ class MonitoriPeli(FloatLayout):
         self.co2 = self.peli.kysymys_nyt.k_arCo2
         self.bis = self.peli.kysymys_nyt.k_arBis
         self.mac = self.peli.kysymys_nyt.k_arMac
-        self.lamp = self.peli.kysymys_nyt.k_arLamp  
+        self.lamp = self.peli.kysymys_nyt.k_arLamp
         self.animointi()
-        self.animointi_2() 
-        self.animointi_3(self.pulssi) 
-        self.animointi_4()
-        Clock.schedule_interval(self.paivita_palikan_paikka, 0)
-
-           
+        self.animointi_2()
+        self.animointi_3(self.pulssi)
+        self.animointi_4()         
 
     def seuraavaSkenaario(self):
         self.peli.asetaSeuraavaSkenaario()
@@ -676,6 +679,15 @@ class MonitoriPeli(FloatLayout):
         sound.play()
     if not sound:
         print("EI SE MUSA TOIMI!!!")
+
+    def aloita_naytto(self, value):
+        """ Purkkaa. Metodi kaynnistaa animaation """
+        self.animointi()
+        self.animointi_2()
+        self.animointi_3(self.pulssi)
+        self.animointi_4()
+        Clock.schedule_interval(self.paivita_palikan_paikka, 0)
+        return " "  
 
 class Menuu(FloatLayout):
     def __init__(self, parent):
