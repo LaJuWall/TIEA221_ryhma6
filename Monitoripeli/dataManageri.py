@@ -21,8 +21,6 @@ class KysymysLista():
 			self.kysymykset.append(kysymys)
 
 	def annaKysymys(self, lista, h_id):
-		print h_id
-		print lista
 		for kysymys in lista.kysymykset:
 		  if kysymys.k_id == h_id:
 			return kysymys
@@ -165,7 +163,6 @@ class SkenaarioLista():
 	
 	def annaSkenaario(self):
 		if len(self.skenaariot) == 0:
-			print "Skenaariot loppu..."
 			sys.exit(0)
 		palaute = self.skenaariot[0]
 		self.skenaariot.pop(0)
@@ -173,34 +170,23 @@ class SkenaarioLista():
 
 class DataManager():
 	def __init__(self):
-		print "*** Aloitettiin datamangerin alustus ***"
 		self.skenaariot = SkenaarioLista()
-		print "Skenaariot alustettu!"
 		self.skenaario_nyt = self.skenaariot.annaSkenaario()
-		print "Ensimmäinen skenaario otettu"
 		self.kysymykset = KysymysLista(self.skenaario_nyt)
-		print "Kysymykset ladattu!"
 		self.vastaukset = VastausLista(self.skenaario_nyt)
-		print "Vastaukset ladattu!"
 		self.selitykset = SelitystenLista(self.skenaario_nyt)
-		print "Selitykset ladattu!"
 		self.kysymys_nyt = self.kysymykset.annaKysymys(self.kysymykset, "01")
-		print "Kysymys otettu käsittelyyn!"
 		self.vastaukset_nyt = self.vastaukset.annaVastaukset(self.kysymys_nyt)
-		print "Kysymyksen vastaukset haettu!"
 		self.selitys_nyt = self.selitykset.annaSelitys(self.selitykset.selitykset ,self.kysymys_nyt.k_sid)
-		print "Selitys otettu talteen!"
 		self.pohjustukset = Pohjustukset()
 		self.pohjustus_nyt = self.pohjustukset.annaPohjustus(self.skenaario_nyt)
-		print "HUOMIOHUOMIOHUOMIOHUOMIO"
-		print self.pohjustus_nyt
-		print "Ses"
 
 	def printtaaKysymys(otus):
 		onkoPohj = None
 		if onkoPohj:
 			print "POHJUSTUS:"
-			print "Blaa blaa blaa"
+		print "Tämän kysymyksen selitys on:"
+		print otus.selitys_nyt.s_txt
 		print "*******************"
 		print "KYSYMYS:"
 		print otus.kysymys_nyt.k_txt
@@ -242,6 +228,7 @@ class DataManager():
 	def asetaSeuraavaKysymys(self, annettu_id):
 		self.kysymys_nyt = self.kysymykset.annaKysymys(self.kysymykset, annettu_id)
 		self.vastaukset_nyt = self.vastaukset.annaVastaukset(self.kysymys_nyt)
+		self.selitys_nyt = self.selitykset.annaSelitys(self.selitykset.selitykset ,self.kysymys_nyt.k_sid)
 
 	def asetaSeuraavaSkenaario(self):
 		self.skenaario_nyt = self.skenaariot.annaSkenaario()
