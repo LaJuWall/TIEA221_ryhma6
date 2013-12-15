@@ -204,7 +204,7 @@ Builder.load_string('''
 
         Button:
             text: 'Seuraava skenaario!'
-            on_press: root.dismiss()
+            on_press: root.seuraavaSkeni()
 
         Button:
             text: 'Sulje peli'
@@ -223,7 +223,7 @@ Builder.load_string('''
 
         Button:
             text: 'Aloita alusta'
-            on_press: root.dismiss()
+            on_press: root.seuraavaSkeni()
 
         Button:
             text: 'Sulje peli'
@@ -333,8 +333,54 @@ Builder.load_string('''
             text: 'Sulje'
             on_press: root.dismiss()
 
+<PohjaContent>:
+    
+    orientation: 'horizontal'
+    textlabel: textlabel
+    padding: 10
+    spacing: 10
+
+    GridLayout:
+
+        cols: 1
+
+        Label:
+            text_size: None, None
+            id: textlabel
+            text: root.text
+            bold: True
+            font_size: '25sp'
+        Widget:
+            heigth: 5
+        GridLayout:
+            cols: 1
+
+        Button:
+            id: close_button
+            text: 'Jatka'
+            font_size: '30sp'
+            on_press: root.on_close_button_clicked()
+
 ''')
 
+class PohjaContent(BoxLayout):
+    text = StringProperty("")
+    textlabel = ObjectProperty()
+
+    def __init__(self, text, parent):
+        BoxLayout.__init__(self)
+        self.text = text
+        self.myparent = parent
+
+    def on_close_button_clicked(self):
+        self.myparent.dismiss()
+
+class PohjaPopup(Popup):
+
+    def __init__(self, text, parent):
+        self.myparent = parent
+        Popup.__init__(self, title=" ", separator_color=[0.15, 0.15, 0.15, 0.15])
+        self.content = PohjaContent(text, self)
 
 class VaaraContent(BoxLayout):
     text = StringProperty("")
@@ -392,13 +438,31 @@ class MainMenu(Popup):
 
 class SkenLapiPopup(Popup):
 
+    def __init__(self, parent):
+        Popup.__init__(self)
+        self.myparent = parent
+
     def lopetaPeli(self):
         sys.exit()
+
+    def seuraavaSkeni(self):
+        poppi = PohjaPopup(self.myparent.pohjustus, self.myparent)
+        poppi.open()
+        self.dismiss()
 
 class PeliLapiPopup(Popup):
 
+    def __init__(self, parent):
+        Popup.__init__(self)
+        self.myparent = parent
+
     def lopetaPeli(self):
         sys.exit()
+
+    def seuraavaSkeni(self):
+        poppi = PohjaPopup(self.myparent.pohjustus, self.myparent)
+        poppi.open()
+        self.dismiss()
 
 class InfoPopup(Popup):
     pass
@@ -430,12 +494,12 @@ class MonitoriPeli(FloatLayout):
             if len(self.peli.skenaariot.skenaariot) > 0:
                 self.peli.asetaSeuraavaSkenaario()
                 self.paivitaNaytto()
-                p = SkenLapiPopup()
+                p = SkenLapiPopup(self)
                 p.open()
             else:
                 self.peli.aloitaAlusta()
                 self.paivitaNaytto()
-                p = PeliLapiPopup()
+                p = PeliLapiPopup(self)
                 p.open()
        
         else:
