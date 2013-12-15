@@ -1,0 +1,17 @@
+vas_id |vas_txt 			                		 |kys_id |
+001    |Verenpaine_on_matala.                        |02     |
+002    |Potilas_on_liian_kevyessä_unessa.            |00     |
+003    |Potilas_on_liian_syvässä_unessa.             |00     |
+004    |Potilas_hengittää_liian_tiheästi.            |00     |
+005    |Puudutuksesta.                               |03     |
+006    |Kivusta.                                     |00     |
+007    |Pelosta.                                     |00     |
+008    |Uupumuksesta.                                |00     |
+009    |Morfiinia.                                   |00     |
+010    |Bisopnololifumaraattia.                      |00     |
+011    |Fentanyylia.                                 |00     |
+012    |Etilefriinia.                                |04     |
+013    |Nostaa.                                      |01     |
+014    |Laskea.                                      |00     |
+015    |Ei mitään.                                   |00     |
+016    |Pysäyttää_kokonaan.                          |00     |

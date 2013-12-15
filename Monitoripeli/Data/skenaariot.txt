@@ -1,0 +1,5 @@
+id
+vatsaleikkaus
+nilkkamurtuma
+munuaisenpoisto
+kainalo

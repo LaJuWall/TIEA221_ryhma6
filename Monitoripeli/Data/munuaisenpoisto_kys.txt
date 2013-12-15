@@ -1,0 +1,5 @@
+kys_id |kys_txt                                                                    |vas_id1 |vas_id2 |vas_id3 |vas_id4 |sel_id |ar_pul |ar_haps |ar_verp |ar_co2 |ar_bis |ar_mac |ar_lamp |
+00     |Mikä_on_pielessä?                                                          |001     |002     |003     |004     |01     |75     |100     |89/47   |4,7    |57     |1,1    |34,2    |
+01     |Mikä_on_pielessä?                                                          |001     |002     |003     |004     |01     |75     |100     |89/47   |4,7    |57     |1,1    |34,2    |
+02     |Millä_seuraavista_keinoista_voit_lämmittää_potilasta?                      |005     |006     |007     |008     |02     |75     |100     |89/47   |4,7    |57     |1,1    |34,2    |
+03     |Mitä_haittaa_on_potilaan_alhaisesta_lämpötilasta?                          |009     |010     |011     |012     |03     |95     |100     |120/75  |4,8    |68     |0,8    |36,4    |

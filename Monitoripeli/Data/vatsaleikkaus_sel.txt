@@ -1,0 +1,5 @@
+sel_id |sel_txt             														   |
+01     |BIS_(bispectial_index_scale)_on_aivosähkökäyrään_perustuva_unen_syvyysmittari. |
+02     |MAC_on_matalahko_ja_BIS_korkea._Tämä_kertoo_unen_olevan_pinnallista.           |
+03     |Unta_tulisi_syventää._Näin_se_ei_onnistu.                                      |
+04     |Valveilla_BIS_on_lähellä_100_ja_kirurgiaan_riittävä_taso_on_40-60_välillä.     |

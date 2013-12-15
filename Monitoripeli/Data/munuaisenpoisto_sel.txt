@@ -1,0 +1,4 @@
+sel_id |sel_txt             														                                              |
+01     |34,2_on_liian_matala_lämpötila.                                                                                           |
+02     |Potilaan_lämpötilaa_voidaan_vaikuttaa_mm._haihtumisen_minimoinnilla,_lämpöisillä_nesteillä_ja_peitteillä,_lämmittimillä.  |
+03     |Alhainen_ruumiinlämpö_on_tuskallista_potilaalle._Lisäksi_haavan_paraneminen_ja_anestesiasta_toipuminen_hidastuu.          |

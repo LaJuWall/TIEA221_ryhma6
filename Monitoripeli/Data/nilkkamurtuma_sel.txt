@@ -1,0 +1,5 @@
+sel_id |sel_txt             														 |
+01     |MAP_tarkoittaa_keskiverenpainetta.                                           |
+02     |Puudutus_laskee_verenpainetta,_kun_taas_kipu_ja_pelko_nostaa_verenpainetta.  |
+03     |Etilefiiniä_voidaan_käyttää_verenpaineen_nostoon.                            |
+04     |Etifeliini_nostaa_verenpaineen_lisäksi_myös_pulssia.                         |
