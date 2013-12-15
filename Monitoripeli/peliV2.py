@@ -530,7 +530,11 @@ class MonitoriPeli(FloatLayout):
 
     def seuraavaSkenaario(self):
         self.peli.asetaSeuraavaSkenaario()
+        self.pohjustus2 = self.peli.pohjustukset.annaPohjustus(self.peli.skenaario_nyt)
+        self.pohjustus = self.pohjustus2.p_txt
         self.paivitaNaytto()
+        poppi = PohjaPopup(self.pohjustus, self)
+        poppi.open()
 
     def toggleSound(self):
         if self.aanet:
@@ -672,6 +676,8 @@ class Menuu(FloatLayout):
     def klikki(self):
         lisattava = MonitoriPeli()
         self.myparent.add_widget(lisattava)
+        poppi = PohjaPopup(lisattava.pohjustus, lisattava)
+        poppi.open()
         self.myparent.remove_widget(self)
 
     def NaytaInfo(self):
