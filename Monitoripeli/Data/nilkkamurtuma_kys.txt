@@ -1,6 +1,6 @@
-kys_id |kys_txt                                                             |vas_id1 |vas_id2 |vas_id3 |vas_id4 |sel_id |ar_pul |ar_haps |ar_verp |ar_co2 |ar_bis |ar_mac |ar_lamp |
-00     |                                                                    |001     |002     |002     |002     |01     |101    |102     |103     |104    |105    |106    |107     |
-01     |MAP_on_60._Mistä_tämä_kertoo?                                       |001     |002     |003     |004     |01     |65     |99      |84/48   |4,8    |68     |0,8    |37,3    |
-02     |Mistä_matalat_verenpaineet_voivat_johtua?                           |005     |006     |007     |008     |02     |65     |99      |84/48   |4,8    |68     |0,8    |37,3    |
-03     |Mitä_seuraavista_lääkkeistä_antaisit_potilaalle_tässä_tilanteessa?  |009     |010     |011     |012     |03     |65     |99      |84/48   |4,8    |68     |0,8    |37,3    |
-04     |Mitä_etilefiini_voi_tehdä_pulssille?                                |013     |014     |015     |016     |04     |77     |100     |104/68  |4,6    |45     |1,1    |37,2    |
+kys_id |kys_txt                                                             |vas_id1 |vas_id2 |vas_id3 |vas_id4 |sel_id |ar_pul |ar_haps |ar_verp      |ar_co2 |ar_bis     |ar_mac     |ar_lamp   |
+00     |MAP_on_60._Mistä_tämä_kertoo?                                       |001     |002     |003     |004     |01     |65     |99%     |84/48 (60)   |4,8    |BIS 68     |mac 0,8    |T 37,3    |
+01     |MAP_on_60._Mistä_tämä_kertoo?                                       |001     |002     |003     |004     |01     |65     |99%     |84/48 (60)   |4,8    |BIS 68     |mac 0,8    |T 37,3    |
+02     |Mistä_matalat_verenpaineet_voivat_johtua?                           |005     |006     |007     |008     |02     |65     |99%     |84/48 (60)   |4,8    |BIS 68     |mac 0,8    |T 37,3    |
+03     |Mitä_seuraavista_lääkkeistä_antaisit_potilaalle_tässä_tilanteessa?  |009     |010     |011     |012     |03     |65     |99%     |84/48 (60)   |4,8    |BIS 68     |mac 0,8    |T 37,3    |
+04     |Mitä_etilefiini_voi_tehdä_pulssille?                                |013     |014     |015     |016     |04     |77     |100%    |104/68 (70)  |4,6    |BIS 45     |mac 1,1    |T 37,2    |

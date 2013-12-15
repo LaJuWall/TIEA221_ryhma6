@@ -1,6 +1,6 @@
-kys_id |kys_txt                                                                    |vas_id1 |vas_id2 |vas_id3 |vas_id4 |sel_id |ar_pul |ar_haps |ar_verp |ar_co2 |ar_bis |ar_mac |ar_lamp |
-00     |                                                                           |001     |002     |002     |002     |01     |101    |102     |103     |104    |105    |106    |107     |
-01     |Mikä_on_BIS?_Mistä_se_kertoo?                                              |001     |002     |003     |004     |01     |75     |100     |89/47   |4,8    |68     |0,8    |37,3    |
-02     |Potilas_reagoi_viiltoon_pönkimällä_vastaan._Mistä_tämä_saattaisi_johtua?   |005     |006     |007     |008     |02     |95     |100     |120/75  |4,8    |68     |0,8    |37,3    |
-03     |Kuinka_tällaisessa_tilanteessa_tulisi_toimia?                              |009     |010     |011     |012     |03     |95     |100     |120/75  |4,8    |68     |0,8    |37,3    |
-04     |Mikä_on_suositeltava_BIS-lukema_kirurgaan?                                 |013     |014     |015     |016     |04     |70     |100     |107/68  |4,6    |45     |1,1    |37,2    |
+kys_id |kys_txt                                                                    |vas_id1 |vas_id2 |vas_id3 |vas_id4 |sel_id |ar_pul |ar_haps  |ar_verp      |ar_co2 |ar_bis     |ar_mac     |ar_lamp   |
+00     |Mikä_on_BIS?_Mistä_se_kertoo?                                              |001     |002     |002     |002     |01     |75     |100%     |89/47 (66)   |4,8    |BIS 68     |mac 0,8    |T 37,3    |
+01     |Mikä_on_BIS?_Mistä_se_kertoo?                                              |001     |002     |003     |004     |01     |75     |100%     |89/47 (66)   |4,8    |BIS 68     |mac 0,8    |T 37,3    |
+02     |Potilas_reagoi_viiltoon_pönkimällä_vastaan._Mistä_tämä_saattaisi_johtua?   |005     |006     |007     |008     |02     |95     |100%     |120/75 (83)  |4,8    |BIS 68     |mac 0,8    |T 37,3    |
+03     |Kuinka_tällaisessa_tilanteessa_tulisi_toimia?                              |009     |010     |011     |012     |03     |95     |100%     |120/75 (83)  |4,8    |BIS 68     |mac 0,8    |T 37,3    |
+04     |Mikä_on_suositeltava_BIS-lukema_kirurgaan?                                 |013     |014     |015     |016     |04     |70     |100%     |107/68 (73)  |4,6    |BIS 45     |mac 1,1    |T 37,2    |
