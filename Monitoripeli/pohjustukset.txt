@@ -1,2 +1,5 @@
-sken_id |pohj_txt       |
-esim2   |liiba_laaba    |
+sken_id 		 |pohj_txt                											                   |
+vatsaleikkaus    |Tilanne:_Vatsan_alueen_leikkaus_balansoidussa_yleisanestesiassa.                     |
+nilkkamurtuma    |Tilanne:_Nlikkamurtumapotilas_spinaalipuudutuksessa.                                 |
+munuaisenpoisto  |Tilanne:_Munuaisen_poisto_laparoskopisesti_balansoidussa_yleisanestesiassa.          |
+kainalo          |Tilanne:_Yleisanestesiassa_tehtävä_kainaloevakulaatio,_jossa_käytetään_larynxmaskia. |

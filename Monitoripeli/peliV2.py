@@ -149,7 +149,8 @@ Builder.load_string('''
         text: root.lamp
 
     Label:
-        pos: 0, -120
+        pos: 10, -120
+        text_size: root.width, 40
         font_size: 18
         text: root.label_txt
 
@@ -176,18 +177,22 @@ Builder.load_string('''
             cols: 2
 
             Button:
+            	text_size: root.width*.4, 50
                 text: root.a_btn_txt
                 on_press: root.a_press()
 
             Button:
+            	text_size: root.width * .4 , 50
                 text: root.b_btn_txt
                 on_press: root.b_press()
 
             Button:
+            	text_size: root.width * .4 , 50
                 text: root.c_btn_txt
                 on_press: root.c_press()
 
             Button:
+            	text_size: root.width * .4 , 50
                 text: root.d_btn_txt
                 on_press: root.d_press()
 
@@ -345,7 +350,7 @@ Builder.load_string('''
         cols: 1
 
         Label:
-            text_size: None, None
+            text_size: root.width, 100
             id: textlabel
             text: root.text
             bold: True
@@ -531,7 +536,7 @@ class MonitoriPeli(FloatLayout):
     def seuraavaSkenaario(self):
         self.peli.asetaSeuraavaSkenaario()
         self.pohjustus2 = self.peli.pohjustukset.annaPohjustus(self.peli.skenaario_nyt)
-        self.pohjustus = self.pohjustus2.p_txt
+        self.pohjustus = self.pohjustus2.txt
         self.paivitaNaytto()
         poppi = PohjaPopup(self.pohjustus, self)
         poppi.open()

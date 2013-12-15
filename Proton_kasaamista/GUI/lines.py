@@ -99,6 +99,7 @@ Builder.load_string('''
     Label:
         pos: 0, -120
         font_size: 18
+        size_hint: .3, .2
         text: root.label_txt
 
     Label:

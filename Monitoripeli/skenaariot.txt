@@ -1,3 +1,5 @@
 id
-esim
-esim2
+vatsaleikkaus
+nilkkamurtuma
+munuaisenpoisto
+kainalo
